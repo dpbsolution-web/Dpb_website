@@ -174,8 +174,7 @@ export const testimonials = [
     company: "TechCorp Industries",
     role: "IT Director",
     content: "DPB Solution transformed our IT infrastructure completely. Their expertise in cloud migration saved us 40% on operational costs while improving performance.",
-    rating: 5,
-    image: "/images/testimonials/john-smith.jpg"
+    rating: 5
   },
   {
     id: 2,
@@ -183,8 +182,7 @@ export const testimonials = [
     company: "Healthcare Plus",
     role: "CTO",
     content: "The cybersecurity solutions provided by DPB Solution gave us peace of mind. Their 24/7 monitoring has prevented multiple security incidents.",
-    rating: 5,
-    image: "/images/testimonials/lisa-johnson.jpg"
+    rating: 5
   },
   {
     id: 3,
@@ -192,8 +190,7 @@ export const testimonials = [
     company: "Manufacturing Solutions",
     role: "Operations Manager",
     content: "Excellent VoIP implementation. Our communication efficiency improved dramatically, and the support team is always responsive.",
-    rating: 5,
-    image: "/images/testimonials/robert-chen.jpg"
+    rating: 5
   }
 ];
 

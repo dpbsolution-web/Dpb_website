@@ -78,7 +78,7 @@ export function HeroSection() {
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
             style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.9)' }}
           >
-            <span className="text-white">DBP</span>{" "}
+            <span className="text-white">DPB</span>{" "}
             <span className="text-blue-400">Solution</span>
             <br />
             <span className="block mt-2 text-white text-3xl md:text-5xl lg:text-6xl">

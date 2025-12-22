@@ -15,14 +15,14 @@ export const PRIVACY_SECTIONS = [
 ];
 
 export const PRIVACY_INTRO = {
-  text: "DBP Solution Pvt. Ltd. is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or engage with us in any capacity."
+  text: "DPB Solution Pvt. Ltd. is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or engage with us in any capacity."
 };
 
 export const PRIVACY_CONTENT = {
   introduction: {
     title: "1. Introduction",
     paragraphs: [
-      'DBP Solution Pvt. Ltd. ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or engage with us in any capacity.',
+      'DPB Solution Pvt. Ltd. ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website, use our services, or engage with us in any capacity.',
       "By accessing or using our services, you agree to the terms outlined in this Privacy Policy. If you do not agree with these terms, please do not use our services."
     ]
   },
@@ -127,7 +127,7 @@ export const PRIVACY_CONTENT = {
     title: "11. Contact Information",
     text: "If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:",
     details: {
-      company: "DBP Solution Pvt. Ltd.",
+      company: "DPB Solution Pvt. Ltd.",
       address: "Road No-01, Awadhpuri Colony, Ara, Bihar - 802301",
       email: "info@dpbsolution.com, dpbsolution19@gmail.com",
       phone: "9973789207, 7277327990",

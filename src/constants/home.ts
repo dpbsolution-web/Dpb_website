@@ -28,23 +28,23 @@ export const HOME_HERO = {
 // Home page statistics
 export const HOME_STATS = [
   {
-    value: "500+",
+    value: "10+",
     label: "Happy Clients",
     icon: Users
   },
   {
-    value: "50+",
+    value: "100+",
     label: "Team Members",
     icon: Users
   },
   {
-    value: "10+",
+    value: "6+",
     label: "Years Experience",
     icon: Award
   },
   {
-    value: "25+",
-    label: "Countries",
+    value: "10+",
+    label: "Cities in India",
     icon: Globe
   }
 ];
@@ -58,7 +58,7 @@ export const WHY_CHOOSE_US = {
     {
       icon: CheckCircle,
       title: "Proven Expertise",
-      description: "Over a decade of experience in delivering enterprise-grade telecom solutions"
+      description: "Over 6 years of experience in delivering enterprise-grade telecom solutions"
     },
     {
       icon: CheckCircle,

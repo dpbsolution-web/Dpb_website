@@ -19,7 +19,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60  bg-white shadow-sm" role="banner">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2" aria-label="DBP Solution Home">
+        <Link href="/" className="flex items-center space-x-2" aria-label="DPB Solution Home">
           <Image 
             src="/images/logo.jpeg" 
             alt={`${companyInfo.name} Logo`}

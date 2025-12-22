@@ -2,10 +2,10 @@ import { Users, Target, Award, Globe } from "lucide-react";
 
 // About page stats
 export const ABOUT_STATS = [
-  { icon: Users, label: "Team Members", value: "50+" },
+  { icon: Users, label: "Happy Clients", value: "9+" },
   { icon: Target, label: "Projects Completed", value: "200+" },
-  { icon: Award, label: "Years Experience", value: "16+" },
-  { icon: Globe, label: "Countries Served", value: "25+" },
+  { icon: Award, label: "Years Experience", value: "6+" },
+  { icon: Globe, label: "Cities in India", value: "10+" },
 ];
 
 // Leadership team
@@ -13,7 +13,7 @@ export const LEADERSHIP_TEAM = [
   {
     name: "Supriya Pathak",
     role: "CEO & Founder",
-    description: "Visionary leader with 15+ years in tech innovation.",
+    description: "Visionary leader with 6+ years in telecommunications innovation.",
     image: "/images/team/supriya-pathak.jpg",
   },
   {
@@ -53,9 +53,9 @@ export const MISSION_VISION = {
 // Company story
 export const COMPANY_STORY = {
   title: "Our Story",
-  founded: "2014",
+  founded: "2019",
   content: [
-    "Founded in 2014, DPB Solution was established with a clear vision: to deliver reliable and scalable telecommunications solutions tailored for modern businesses. Starting as a small, dedicated team, we have grown into a trusted telecom partner by prioritizing robust connectivity, secure network infrastructure, and dependable communication services.",
+    "Founded in 2019, DPB Solution was established with a clear vision: to deliver reliable and scalable telecommunications solutions tailored for modern businesses. Starting as a small, dedicated team, we have grown into a trusted telecom partner by prioritizing robust connectivity, secure network infrastructure, and dependable communication services.",
     "Today, we continue to empower organizations with high-performance telecom solutions that keep them connected, efficient, and prepared for the future of digital communication.",
   ],
 };

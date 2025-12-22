@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,8 +26,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://dpbsolution.com'),
   title: {
-    default: "DBP Solution - Telecommunications & IT Solutions",
-    template: "%s | DBP Solution",
+    default: "DPB Solution - Telecommunications & IT Solutions",
+    template: "%s | DPB Solution",
   },
   description: "Leading provider of telecommunications and IT solutions, connecting businesses to the future with cutting-edge technology and unparalleled service. Empowering Digital Transformation since 2009.",
   keywords: [
@@ -44,31 +44,31 @@ export const metadata: Metadata = {
     "India telecom",
     "Patna IT services"
   ],
-  authors: [{ name: "DBP Solution Pvt. Ltd." }],
-  creator: "DBP Solution Pvt. Ltd.",
-  publisher: "DBP Solution Pvt. Ltd.",
-  applicationName: "DBP Solution",
+  authors: [{ name: "DPB Solution Pvt. Ltd." }],
+  creator: "DPB Solution Pvt. Ltd.",
+  publisher: "DPB Solution Pvt. Ltd.",
+  applicationName: "DPB Solution",
   referrer: 'origin-when-cross-origin',
   category: 'technology',
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://dpbsolution.com",
-    siteName: "DBP Solution",
-    title: "DBP Solution - Telecommunications & IT Solutions",
+    siteName: "DPB Solution",
+    title: "DPB Solution - Telecommunications & IT Solutions",
     description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation with cutting-edge technology and unparalleled service since 2009.",
     images: [
       {
         url: "/images/logo.jpeg",
         width: 1200,
         height: 630,
-        alt: "DBP Solution - Telecommunications & IT Solutions",
+        alt: "DPB Solution - Telecommunications & IT Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "DBP Solution - Telecommunications & IT Solutions",
+    title: "DPB Solution - Telecommunications & IT Solutions",
     description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation since 2009.",
     creator: "@dpbsolution",
     images: ["/images/logo.jpeg"],

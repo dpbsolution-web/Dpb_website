@@ -16,14 +16,14 @@ export function FeaturesSection() {
     "24/7 Expert Support & Monitoring",
     "Enterprise-Grade Security & Compliance", 
     "Scalable Solutions for Any Business Size",
-    "Proven Track Record Since 2009"
+    "Proven Track Record Since 2019"
   ];
 
   const stats = [
-    { icon: Users, value: "500+", label: "Expert Team", color: "violet" },
+    { icon: Users, value: "10+", label: "Happy Clients", color: "violet" },
     { icon: Award, value: "99.99%", label: "Uptime SLA", color: "emerald" },
-    { icon: Globe, value: "25+", label: "Countries", color: "blue" },
-    { icon: Zap, value: "1200+", label: "Projects", color: "violet" }
+    { icon: Globe, value: "10+", label: "Cities in India", color: "blue" },
+    { icon: Zap, value: "200+", label: "Projects", color: "violet" }
   ];
 
   return (

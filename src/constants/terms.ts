@@ -120,7 +120,7 @@ export const TERMS_CONTENT = {
     title: "11. Contact Information",
     text: "For questions about these Terms or our services, please contact us:",
     details: {
-      company: "DBP Solution Pvt. Ltd.",
+      company: "DPB Solution Pvt. Ltd.",
       address: "Road No-01, Awadhpuri Colony, Ara, Bihar - 802301",
       email: "info@dpbsolution.com, dpbsolution19@gmail.com",
       phone: "9973789207, 7277327990",

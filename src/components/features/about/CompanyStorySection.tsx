@@ -11,7 +11,7 @@ export function CompanyStorySection() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Our Story</h2>
           <div className="prose prose-lg text-gray-600 mx-auto">
             <p className="mb-6">
-              Founded in 2020, DPB Solution was established with a clear vision: to deliver reliable and scalable telecommunications solutions tailored for modern businesses. Starting as a small, dedicated team, we have grown into a trusted telecom partner by prioritizing robust connectivity, secure network infrastructure, and dependable communication services.
+              Founded in 2019, DPB Solution was established with a clear vision: to deliver reliable and scalable telecommunications solutions tailored for modern businesses. Starting as a small, dedicated team, we have grown into a trusted telecom partner by prioritizing robust connectivity, secure network infrastructure, and dependable communication services.
             </p>
             <p>
               Today, we continue to empower organizations with high-performance telecom solutions that keep them connected, efficient, and prepared for the future of digital communication.

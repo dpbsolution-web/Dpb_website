@@ -12,7 +12,7 @@ import {
 
 // Company Information
 export const companyInfo = {
-  name: "DBP Solution Pvt. Ltd.",
+  name: "DPB Solution Pvt. Ltd.",
   tagline: "Empowering Digital Transformation",
   description:
     "We provide comprehensive telecom and IT infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",

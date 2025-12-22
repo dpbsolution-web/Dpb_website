@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -46,9 +46,35 @@ export default function CareersPage() {
     resume: null as File | null,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [jobOpenings, setJobOpenings] = useState<any[]>([]);
+  const [loadingJobs, setLoadingJobs] = useState(true);
   
   // Get configuration from constants
-  const { applicationEmail, googleFormId, hasOpenings } = CAREERS_CONFIG;
+  const { applicationEmail, googleFormId } = CAREERS_CONFIG;
+  
+  // Fetch active job openings from database
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('/api/admin/careers', {
+          cache: 'no-store'
+        });
+        const data = await response.json();
+        // Filter only active jobs
+        const activeJobs = Array.isArray(data) ? data.filter((job: any) => job.active === true) : [];
+        setJobOpenings(activeJobs);
+      } catch (error) {
+        console.error('Failed to fetch job openings:', error);
+        setJobOpenings([]);
+      } finally {
+        setLoadingJobs(false);
+      }
+    };
+    
+    fetchJobs();
+  }, []);
+  
+  const hasOpenings = jobOpenings.length > 0;
   
   const handleApplyClick = (positionTitle: string) => {
     setSelectedPosition(positionTitle);
@@ -288,20 +314,24 @@ export default function CareersPage() {
             </p>
           </div>
           
-          {hasOpenings ? (
+          {loadingJobs ? (
+            <div className="text-center py-12">
+              <p className="text-gray-500 text-lg">Loading job openings...</p>
+            </div>
+          ) : hasOpenings ? (
             <motion.div
               variants={staggerContainer}
               initial="initial"
               whileInView="whileInView"
               className="grid lg:grid-cols-2 gap-8"
             >
-              {POSITIONS.map((position, index) => (
-                <motion.div key={index} variants={scaleIn}>
+              {jobOpenings.map((position, index) => (
+                <motion.div key={position.id || index} variants={scaleIn}>
                   <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-4">
                     <div className="bg-blue-100 p-3 rounded-lg">
-                      <position.icon className="h-6 w-6 text-blue-600" />
+                      <Briefcase className="h-6 w-6 text-blue-600" />
                     </div>
                     <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
                       {position.type}
@@ -310,6 +340,9 @@ export default function CareersPage() {
                   <CardTitle className="text-xl font-semibold text-gray-900">
                     {position.title}
                   </CardTitle>
+                  <CardDescription className="text-sm text-gray-600 mt-1">
+                    {position.department}
+                  </CardDescription>
                 </CardHeader>
                 
                 <CardContent>
@@ -317,14 +350,6 @@ export default function CareersPage() {
                     <div className="flex items-center text-gray-600">
                       <MapPin className="h-4 w-4 mr-2" />
                       {position.location}
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <DollarSign className="h-4 w-4 mr-2" />
-                      {position.salary}
-                    </div>
-                    <div className="flex items-center text-gray-600">
-                      <Briefcase className="h-4 w-4 mr-2" />
-                      {position.department}
                     </div>
                     <div className="flex items-center text-gray-600">
                       <Clock className="h-4 w-4 mr-2" />
@@ -335,7 +360,10 @@ export default function CareersPage() {
                   <div>
                     <h4 className="font-medium text-gray-900 mb-2">Key Requirements:</h4>
                     <ul className="space-y-1">
-                      {position.requirements.slice(0, 3).map((req, reqIndex) => (
+                      {(typeof position.requirements === 'string' 
+                        ? position.requirements.split('\n').filter(Boolean)
+                        : position.requirements
+                      ).slice(0, 3).map((req: string, reqIndex: number) => (
                         <li key={reqIndex} className="flex items-start text-sm text-gray-600">
                           <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 shrink-0"></div>
                           {req}

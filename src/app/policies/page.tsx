@@ -74,7 +74,7 @@ export default function PoliciesPage() {
               <div>
                 <h3 className="text-xl font-semibold mb-2">Your Privacy Matters</h3>
                 <p className="text-muted-foreground leading-relaxed mb-4">
-                  At DBP Solution Pvt. Ltd., we are committed to maintaining the highest standards of data protection and transparency. Our policies are regularly updated to reflect current regulations and best practices in the telecommunications and IT infrastructure industry.
+                  At DPB Solution Pvt. Ltd., we are committed to maintaining the highest standards of data protection and transparency. Our policies are regularly updated to reflect current regulations and best practices in the telecommunications and IT infrastructure industry.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
                   If you have any questions or concerns about our policies, please don&#39;t hesitate to contact us at{" "}

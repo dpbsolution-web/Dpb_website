@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import JsonLd from "@/components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dpbsolution.com'),
   title: {
     default: "DPB Solution - Telecommunications & IT Solutions",
-    template: "%s | DPB Solution",
+    template: "DPB Solution | %s",
   },
   description: "Leading provider of telecommunications and IT solutions, connecting businesses to the future with cutting-edge technology and unparalleled service. Empowering Digital Transformation since 2009.",
   keywords: [
@@ -93,19 +94,11 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   icons: {
-    icon: [
-      { url: '/images/logo.jpeg', sizes: '32x32', type: 'image/jpeg' },
-      { url: '/images/logo.jpeg', sizes: '192x192', type: 'image/jpeg' },
-    ],
+    icon: '/images/logo.jpeg',
     shortcut: '/images/logo.jpeg',
     apple: '/images/logo.jpeg',
-    other: [
-      {
-        rel: 'icon',
-        url: '/images/logo.jpeg',
-      },
-    ],
   },
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
@@ -115,6 +108,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <JsonLd />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

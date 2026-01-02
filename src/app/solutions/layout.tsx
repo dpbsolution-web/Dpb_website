@@ -1,13 +1,26 @@
-import { Metadata } from 'next';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Industry Solutions | DPB Solution',
-  description: 'Discover our comprehensive industry-specific IT solutions for healthcare, finance, education, retail, manufacturing, and government sectors.',
-  keywords: ['IT solutions', 'healthcare technology', 'financial software', 'education technology', 'industry solutions'],
+  title: 'Solutions - Tailored for Every Industry',
+  description: 'Customized telecommunications and IT solutions for healthcare, finance, retail, manufacturing, and education sectors. Enterprise-grade connectivity, security, and scalability.',
+  keywords: [
+    'telecommunications solutions',
+    'industry IT solutions',
+    'healthcare telecom',
+    'financial services IT',
+    'retail technology',
+    'manufacturing connectivity',
+    'education IT infrastructure',
+    'enterprise solutions'
+  ],
   openGraph: {
-    title: 'Industry Solutions | DPB Solution',
-    description: 'Tailored technology solutions designed to meet the unique challenges and requirements of your industry',
-    type: 'website',
+    title: 'DPB Solution - Industry-Specific Solutions',
+    description: 'Tailored telecommunications solutions for every industry',
+    images: ['/images/logo.jpeg'],
+    url: 'https://dpbsolution.com/solutions',
+  },
+  alternates: {
+    canonical: 'https://dpbsolution.com/solutions',
   },
 };
 

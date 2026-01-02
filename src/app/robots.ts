@@ -6,7 +6,23 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        disallow: [
+          '/admin/',
+          '/api/',
+          '/private/',
+          '/*.json$',
+          '/_next/',
+        ],
+      },
+      {
+        userAgent: 'Googlebot',
+        allow: '/',
+        disallow: ['/admin/', '/api/'],
+      },
+      {
+        userAgent: 'Bingbot',
+        allow: '/',
+        disallow: ['/admin/', '/api/'],
       },
     ],
     sitemap: 'https://dpbsolution.com/sitemap.xml',

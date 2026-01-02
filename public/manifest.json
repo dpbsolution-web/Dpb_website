@@ -1,0 +1,26 @@
+{
+  "name": "DPB Solution - Telecommunications & IT Solutions",
+  "short_name": "DPB Solution",
+  "description": "Leading provider of telecommunications and IT solutions, empowering digital transformation since 2009",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#00ffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "technology", "telecommunications"],
+  "lang": "en-IN"
+}

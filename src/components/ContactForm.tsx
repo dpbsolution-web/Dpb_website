@@ -376,7 +376,7 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-900">Phone</h3>
-                  <p className="text-gray-600">+91 8595189980</p>
+                  <p className="text-gray-600">+91 9973789207</p>
                 </div>
               </div>
               

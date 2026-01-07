@@ -81,7 +81,7 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
+      <section className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -93,7 +93,7 @@ export default function ContactPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
             Get In{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
               Touch
             </span>
           </h1>
@@ -139,8 +139,8 @@ export default function ContactPage() {
                     </div>
                     <div className="flex-1">
                       <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                      <a href="tel:+918595189980" className="text-blue-600 hover:text-blue-700 transition-colors">
-                        +91 8595189980
+                      <a href="tel:+919973789207" className="text-blue-600 hover:text-blue-700 transition-colors">
+                        +91 9973789207
                       </a>
                     </div>
                   </div>

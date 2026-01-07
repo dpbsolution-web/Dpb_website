@@ -13,25 +13,64 @@ export function ServicesSection() {
     <section className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          {...fadeInUp}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+          >
             Our Core Services
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
+          >
             Comprehensive IT and telecommunications solutions designed to power your business forward
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div
-          variants={staggerContainer}
-          initial="initial"
-          whileInView="whileInView"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+              }
+            }
+          }}
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {services.slice(0, 6).map((service) => (
-            <motion.div key={service.id} variants={scaleIn}>
+          {services.slice(0, 6).map((service, index) => (
+            <motion.div 
+              key={service.id}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1,
+                  transition: {
+                    duration: 0.5,
+                    ease: "easeOut"
+                  }
+                }
+              }}
+            >
               <ServiceCard
                 title={service.title}
                 description={service.shortDescription}
@@ -44,8 +83,11 @@ export function ServicesSection() {
           ))}
         </motion.div>
 
-        <motion.div 
-          {...fadeInUp}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           className="text-center mt-12"
         >
           <Button size="lg" variant="outline" asChild>

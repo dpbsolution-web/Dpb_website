@@ -1,11 +1,16 @@
-import { PrismaClient } from '@prisma/client';
+// BACKEND CODE COMMENTED OUT - Prisma database client disabled
 
-const globalForPrisma = global as unknown as { prisma: PrismaClient };
+// import { PrismaClient } from '@prisma/client';
 
-export const prisma =
-  globalForPrisma.prisma ||
-  new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  });
+// const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+// export const prisma =
+//   globalForPrisma.prisma ||
+//   new PrismaClient({
+//     log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+//   });
+
+// if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+
+// Placeholder export to prevent import errors
+export const prisma: unknown = null;

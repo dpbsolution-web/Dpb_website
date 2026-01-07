@@ -15,7 +15,7 @@ export const siteContent = {
   company: {
     name: "DPB Solution",
     tagline: "Connecting the Future with Advanced Telecom",
-    description: "Experience next-generation telecommunications with 5G networks, IoT solutions, and seamless global connectivity that powers your digital transformation.",
+    description: "We provide comprehensive telecom and Civil infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",
     founded: "2009",
     email: "info@DPBsolution.com",
     phone: "+1 (800) TELECOM",
@@ -71,7 +71,7 @@ export const siteContent = {
 
   // Services
   services: {
-    title: "Telecommunications Solutions",
+    title: "Our Services",
     description: "Comprehensive telecom services designed for the modern connected world",
     items: [
       {

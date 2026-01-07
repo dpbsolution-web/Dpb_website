@@ -1,8 +1,8 @@
-import { Code, Briefcase, Radio, Network } from "lucide-react";
+import { Briefcase, Radio, Network } from "lucide-react";
 
 // Email configuration
 export const CAREERS_CONFIG = {
-  applicationEmail: "dpbsolution.job@gmail.com",
+  applicationEmail: "info@dpbsolution.com",
   googleFormId: "", // Add your Google Form ID here or leave empty to use built-in form
   hasOpenings: true, // Set to false to hide all positions and show "no openings" message
 };
@@ -10,107 +10,54 @@ export const CAREERS_CONFIG = {
 // Job positions data
 export const POSITIONS = [
   {
-    title: "ISP Engineer",
+    title: "ISP Enggs for PAN India",
     department: "Network Engineering",
-    location: "Munshipalli Maharajganj (Telangana)",
+    location: "PAN India",
     type: "Full-time",
     salary: "Competitive",
     icon: Network,
     description:
-      "Join our network engineering team to design, deploy, and maintain Internet Service Provider infrastructure. Work with cutting-edge telecommunications technology to deliver reliable connectivity solutions.",
+      "Join our network engineering team to design, deploy, and maintain Internet Service Provider infrastructure across India. Work with cutting-edge telecommunications technology to deliver reliable connectivity solutions.",
     requirements: [
-      "0-5 years of experience in relevant field",
+      "Experience in ISP operations and network engineering",
       "Graduate/Diploma (ELE/ ECE/ IT/Telecom)",
-      "Experience / As a Fiber/ ISP Engineer",
-      "Remarks: Local candidate preferred",
       "Strong understanding of network protocols and ISP operations",
       "Experience with network configuration and troubleshooting",
+      "Willing to work across PAN India locations",
     ],
   },
   {
-    title: "Fiber Engineer",
+    title: "OSP/OFC Enggs for PAN India",
     department: "Field Operations",
-    location: "Vangal (Tamilnadu)",
+    location: "PAN India",
     type: "Full-time",
     salary: "Competitive",
     icon: Radio,
     description:
-      "Be part of our field operations team responsible for fiber optic network installation, maintenance, and optimization. Work on expanding our fiber infrastructure to connect communities.",
+      "Be part of our field operations team responsible for Outside Plant (OSP) and Optical Fiber Cable (OFC) network installation, maintenance, and optimization across India.",
     requirements: [
-      "0-5 years of experience in relevant field",
+      "Experience in OSP/OFC deployment and maintenance",
       "Graduate/Diploma (ELE/ ECE/ IT/Telecom)",
-      "Experience / As a Fiber/ ISP Engineer",
-      "Remarks: Local candidate preferred",
       "Knowledge of fiber optic cable installation and splicing",
       "Understanding of FTTH/FTTX deployment",
+      "Willing to work across PAN India locations",
     ],
   },
   {
-    title: "Network Operations Engineer",
-    department: "Network Engineering",
-    location: "Patna, Bihar / Onsite",
+    title: "Riggers for Bihar, Jharkhand and Odisha",
+    department: "Field Operations",
+    location: "Bihar, Jharkhand and Odisha",
     type: "Full-time",
-    salary: "₹4L - ₹8L per annum",
-    icon: Network,
-    description:
-      "Monitor and maintain our telecommunications network infrastructure. Ensure optimal performance, troubleshoot issues, and implement network improvements.",
-    requirements: [
-      "2+ years of network operations experience",
-      "Knowledge of routing protocols (BGP, OSPF, MPLS)",
-      "Experience with network monitoring tools",
-      "Understanding of telecom infrastructure",
-      "Strong analytical and problem-solving skills",
-    ],
-  },
-  {
-    title: "Telecom Project Manager",
-    department: "Operations",
-    location: "Patna, Bihar / Remote",
-    type: "Full-time",
-    salary: "₹6L - ₹12L per annum",
+    salary: "Competitive",
     icon: Briefcase,
     description:
-      "Lead telecommunications infrastructure projects from planning to deployment. Coordinate with technical teams, vendors, and stakeholders to ensure successful project delivery.",
+      "Join our rigging team for telecom tower and infrastructure installation and maintenance across Bihar, Jharkhand and Odisha regions.",
     requirements: [
-      "3+ years of telecom project management experience",
-      "PMP or similar certification preferred",
-      "Experience with fiber deployment projects",
-      "Strong leadership and communication skills",
-      "Knowledge of telecom regulations and standards",
-    ],
-  },
-  {
-    title: "Network Security Specialist",
-    department: "Security",
-    location: "Patna, Bihar / Onsite",
-    type: "Full-time",
-    salary: "₹5L - ₹10L per annum",
-    icon: Code,
-    description:
-      "Protect our network infrastructure and customer data. Implement security protocols, monitor for threats, and ensure compliance with industry standards.",
-    requirements: [
-      "3+ years of network security experience",
-      "Knowledge of firewalls, VPNs, and security protocols",
-      "Experience with security monitoring tools",
-      "Understanding of telecom security standards",
-      "Relevant certifications (CISSP, CEH) preferred",
-    ],
-  },
-  {
-    title: "Field Technician (Trainee)",
-    department: "Field Operations",
-    location: "Patna, Bihar",
-    type: "Full-time / Trainee",
-    salary: "₹2L - ₹3.5L per annum",
-    icon: Radio,
-    description:
-      "Start your career in telecommunications. Learn fiber optic installation, network equipment setup, and field operations under experienced mentors.",
-    requirements: [
-      "ITI/Diploma in Electronics/Electrical",
+      "Experience in rigging and tower climbing",
+      "Knowledge of safety procedures and protocols",
+      "Physical fitness and ability to work at heights",
       "Willingness to work in field conditions",
-      "Basic understanding of networking",
-      "Good communication skills",
-      "Eager to learn and grow in telecom sector",
+      "Local candidate from Bihar, Jharkhand or Odisha preferred",
     ],
   },
 ];

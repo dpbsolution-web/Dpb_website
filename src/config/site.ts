@@ -8,21 +8,23 @@ import {
   Award,
   Target,
   Heart,
+  Users,
+  Radio,
 } from "lucide-react";
 
 // Company Information
 export const companyInfo = {
-  name: "DPB Solution Pvt. Ltd.",
+  name: "DPB Solution",
   tagline: "Empowering Digital Transformation",
   description:
-    "We provide comprehensive telecom and IT infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",
+    "We provide comprehensive telecom and Civil infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",
   founded: "2009",
   employees: "100+",
   clients: "80+",
   countries: "Multiple Cities in India",
   contact: {
     email: "info@dpbsolution.com",
-    phone: "+91 8595189980",
+    phone: "+91 9973789207",
     address: "Patna Bihar, 800001, India",
     hours: "Mon-Fri 8:00 AM - 6:00 PM PST",
   },
@@ -36,20 +38,50 @@ export const companyInfo = {
 // Services Data
 export const services = [
   {
-    id: "internet-solutions",
-    title: "Internet Solutions",
+    id: "ofc-solutions",
+    title: "OFC Solutions",
     shortDescription:
-      "High-speed, reliable internet connectivity for businesses of all sizes.",
+      "Complete Optical Fiber Cable solutions for high-speed connectivity and network infrastructure.",
     icon: Wifi,
     features: [
-      "Fiber Optic Networks",
-      "Dedicated Internet Access",
-      "Scalable Bandwidth",
+      "OFC Deployment",
+      "OFC Maintenance",
       "24/7 Network Monitoring",
       "99.99% Uptime SLA",
+      "100% Project Delivery within SLA",
     ],
     pricing: "Starting from $299/month",
     popular: true,
+  },
+  {
+    id: "manpower-outsourcing",
+    title: "Manpower Outsourcing Services",
+    shortDescription:
+      "Skilled manpower solutions with comprehensive training and government compliance.",
+    icon: Users,
+    features: [
+      "Provide Skilled Manpower",
+      "Regular Training",
+      "Skill Development Session",
+      "Full fill Govt. Compliances",
+    ],
+    pricing: "Custom Pricing",
+    popular: true,
+  },
+  {
+    id: "isp-mw-deployment",
+    title: "ISP and MW Deployment and Maintenance",
+    shortDescription:
+      "Expert ISP and Microwave deployment services with comprehensive safety training.",
+    icon: Radio,
+    features: [
+      "Skilled ISP Enggs with Team",
+      "Rigger and Enggs for MW",
+      "Offer Safety Training",
+      "Organise Farm Tokli Training Regularly",
+    ],
+    pricing: "Custom Pricing",
+    popular: false,
   },
   {
     id: "cloud-services",

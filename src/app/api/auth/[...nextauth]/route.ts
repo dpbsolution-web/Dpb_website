@@ -1,6 +1,18 @@
-import NextAuth from "next-auth";
-import { authOptions } from "@/lib/auth";
+// BACKEND CODE REMOVED - Authentication disabled
 
-const handler = NextAuth(authOptions);
+import { NextResponse } from "next/server";
 
-export { handler as GET, handler as POST };
+// Disabled authentication endpoint
+export async function GET() {
+  return NextResponse.json(
+    { error: "Authentication disabled" },
+    { status: 503 }
+  );
+}
+
+export async function POST() {
+  return NextResponse.json(
+    { error: "Authentication disabled" },
+    { status: 503 }
+  );
+}

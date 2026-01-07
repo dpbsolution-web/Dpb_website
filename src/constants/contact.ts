@@ -3,7 +3,7 @@
 // Contact information
 export const CONTACT_INFO = {
   email: "info@DPBsolution.com",
-  phone: "+1 (555) 123-4567",
+  phone: "+91 9973789207",
   address: {
     street: "123 Business Street",
     city: "San Francisco",
@@ -69,7 +69,7 @@ export const OFFICE_LOCATIONS = [
   {
     name: "Headquarters",
     address: "123 Business Street, San Francisco, CA 94102",
-    phone: "+1 (555) 123-4567",
+    phone: "+91 9973789207",
     email: "info@DPBsolution.com",
     mapLink: "https://maps.google.com"
   }

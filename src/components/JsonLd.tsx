@@ -2,14 +2,14 @@ export default function JsonLd() {
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'DPB Solution Pvt. Ltd.',
+    name: 'DPB Solution',
     description: 'Leading provider of telecommunications and IT solutions, empowering digital transformation since 2009',
     url: 'https://dpbsolution.com',
     logo: 'https://dpbsolution.com/images/logo.jpeg',
     foundingDate: '2009',
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+91-XXX-XXX-XXXX',
+      telephone: '+91-9973789207',
       contactType: 'Customer Service',
       areaServed: 'IN',
       availableLanguage: ['English', 'Hindi'],
@@ -37,18 +37,18 @@ export default function JsonLd() {
     description: 'Telecommunications and IT solutions provider',
     publisher: {
       '@type': 'Organization',
-      name: 'DPB Solution Pvt. Ltd.',
+      name: 'DPB Solution',
     },
   };
 
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    name: 'DPB Solution Pvt. Ltd.',
+    name: 'DPB Solution',
     image: 'https://dpbsolution.com/images/logo.jpeg',
     '@id': 'https://dpbsolution.com',
     url: 'https://dpbsolution.com',
-    telephone: '+91-XXX-XXX-XXXX',
+    telephone: '+91-9973789207',
     priceRange: '$$',
     address: {
       '@type': 'PostalAddress',

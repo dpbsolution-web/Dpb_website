@@ -82,7 +82,7 @@ export function HeroSection() {
             <span className="text-blue-400">Solution</span>
             <br />
             <span className="block mt-2 text-white text-3xl md:text-5xl lg:text-6xl">
-              Transform Your Digital Operations
+              Smart Engineering and Reliable Solutions
             </span>
           </motion.h1>
 

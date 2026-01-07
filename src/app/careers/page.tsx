@@ -1,156 +1,69 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { 
   MapPin, 
   Clock, 
-  DollarSign, 
   Briefcase,
-  ExternalLink,
-  Upload
 } from "lucide-react";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { toast } from "sonner";
 import { 
   CAREERS_CONFIG, 
-  POSITIONS, 
   CULTURE_VALUES, 
   COMPANY_STATS, 
-  HIRING_PROCESS 
+  HIRING_PROCESS,
+  POSITIONS
 } from "@/constants/careers";
 import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 
 export default function CareersPage() {
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [applicationData, setApplicationData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    coverLetter: "",
-    resume: null as File | null,
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [jobOpenings, setJobOpenings] = useState<any[]>([]);
-  const [loadingJobs, setLoadingJobs] = useState(true);
   
   // Get configuration from constants
-  const { applicationEmail, googleFormId } = CAREERS_CONFIG;
+  const { applicationEmail } = CAREERS_CONFIG;
   
-  // Fetch active job openings from database
-  useEffect(() => {
-    const fetchJobs = async () => {
-      try {
-        const response = await fetch('/api/admin/careers', {
-          cache: 'no-store'
-        });
-        const data = await response.json();
-        // Filter only active jobs
-        const activeJobs = Array.isArray(data) ? data.filter((job: any) => job.active === true) : [];
-        setJobOpenings(activeJobs);
-      } catch (error) {
-        console.error('Failed to fetch job openings:', error);
-        setJobOpenings([]);
-      } finally {
-        setLoadingJobs(false);
-      }
-    };
-    
-    fetchJobs();
-  }, []);
+  // COMMENTED OUT: Fetch active job openings from database
+  // useEffect(() => {
+  //   const fetchJobs = async () => {
+  //     try {
+  //       const response = await fetch('/api/admin/careers', {
+  //         cache: 'no-store'
+  //       });
+  //       const data = await response.json();
+  //       // Filter only active jobs
+  //       const activeJobs = Array.isArray(data) ? data.filter((job: JobOpening) => job.active === true) : [];
+  //       setJobOpenings(activeJobs);
+  //     } catch (error) {
+  //       console.error('Failed to fetch job openings:', error);
+  //       setJobOpenings([]);
+  //     } finally {
+  //       setLoadingJobs(false);
+  //     }
+  //   };
+  //   
+  //   fetchJobs();
+  // }, []);
   
+  // Use static positions from constants (no API call)
+  const jobOpenings = POSITIONS;
   const hasOpenings = jobOpenings.length > 0;
   
   const handleApplyClick = (positionTitle: string) => {
     setSelectedPosition(positionTitle);
     setIsDialogOpen(true);
   };
-  
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setApplicationData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setApplicationData(prev => ({ ...prev, resume: e.target.files![0] }));
-    }
-  };
-  
-  const handleSubmitApplication = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      // In a real application, you would send this to your backend API
-      // Example: await fetch('/api/send-application', { method: 'POST', body: JSON.stringify(applicationData) })
-      
-      // For now, create a mailto link with the application details
-      const mailtoLink = `mailto:${applicationEmail}?subject=${encodeURIComponent(`Job Application: ${selectedPosition} - ${applicationData.name}`)}&body=${encodeURIComponent(
-        `New Job Application\n\n` +
-        `Position: ${selectedPosition}\n` +
-        `Name: ${applicationData.name}\n` +
-        `Email: ${applicationData.email}\n` +
-        `Phone: ${applicationData.phone}\n` +
-        `Resume: ${applicationData.resume?.name || 'Not attached'}\n\n` +
-        `Cover Letter:\n${applicationData.coverLetter}\n\n` +
-        `---\n` +
-        `Note: Please check the attachments for the resume file.`
-      )}`;
-      
-      // Open mailto link
-      window.location.href = mailtoLink;
-      
-      // Simulate API delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      // Reset form
-      setApplicationData({
-        name: "",
-        email: "",
-        phone: "",
-        coverLetter: "",
-        resume: null,
-      });
-      
-      setIsSubmitting(false);
-      setIsDialogOpen(false);
-      
-      toast.success("Application Submitted Successfully!", {
-        description: `Thank you for applying for ${selectedPosition}. Your application has been sent to ${applicationEmail}. We'll review it and get back to you within 2-3 business days.`,
-        duration: 6000,
-      });
-    } catch {
-      setIsSubmitting(false);
-      toast.error("Submission Failed", {
-        description: `There was an error submitting your application. Please try again or email us directly at ${applicationEmail}`,
-      });
-    }
-  };
-  
-  const openGoogleForm = () => {
-    if (googleFormId) {
-      window.open(`https://docs.google.com/forms/d/e/${googleFormId}/viewform`, '_blank');
-    }
-    setIsDialogOpen(false);
-  };
-  
-  const isFormValid = applicationData.name && applicationData.email && applicationData.phone && applicationData.coverLetter;
 
   return (
     <div className="min-h-screen bg-white">
@@ -314,11 +227,7 @@ export default function CareersPage() {
             </p>
           </div>
           
-          {loadingJobs ? (
-            <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">Loading job openings...</p>
-            </div>
-          ) : hasOpenings ? (
+          {hasOpenings ? (
             <motion.div
               variants={staggerContainer}
               initial="initial"
@@ -326,7 +235,7 @@ export default function CareersPage() {
               className="grid lg:grid-cols-2 gap-8"
             >
               {jobOpenings.map((position, index) => (
-                <motion.div key={position.id || index} variants={scaleIn}>
+                <motion.div key={index} variants={scaleIn}>
                   <Card className="hover:shadow-lg transition-shadow duration-300 h-full">
                 <CardHeader className="pb-3">
                   <div className="flex items-center justify-between mb-4">
@@ -361,8 +270,8 @@ export default function CareersPage() {
                     <h4 className="font-medium text-gray-900 mb-2">Key Requirements:</h4>
                     <ul className="space-y-1">
                       {(typeof position.requirements === 'string' 
-                        ? position.requirements.split('\n').filter(Boolean)
-                        : position.requirements
+                        ? (position.requirements as string).split('\n').filter(Boolean)
+                        : (position.requirements as string[])
                       ).slice(0, 3).map((req: string, reqIndex: number) => (
                         <li key={reqIndex} className="flex items-start text-sm text-gray-600">
                           <div className="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2 mr-2 shrink-0"></div>
@@ -383,165 +292,83 @@ export default function CareersPage() {
                         Apply Now
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[650px] max-h-[90vh] overflow-y-auto bg-white border-2 border-blue-200">
+                    <DialogContent className="sm:max-w-[500px] bg-white border-2 border-blue-200">
                       <DialogHeader className="pb-4 border-b">
-                        <DialogTitle className="text-2xl font-bold text-gray-900">Apply for {selectedPosition}</DialogTitle>
+                        <div className="flex flex-row items-center gap-3 pt-2">
+                          {/* Company Logo */}
+                          <Image
+                            src="/images/logo.jpeg"
+                            alt="DPB Solution"
+                            width={100}
+                            height={30}
+                            className="h-10 w-auto"
+                          />
+                          <DialogTitle className="text-2xl font-bold text-gray-900 text-center">Apply for {selectedPosition}</DialogTitle>
+                        </div>
                       </DialogHeader>
                       
-                      {googleFormId ? (
-                        // Show Google Form option if form ID is provided
-                        <div className="space-y-4 py-4">
-                          <div className="flex flex-col gap-4">
-                            <Button
-                              onClick={openGoogleForm}
-                              className="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700"
-                            >
-                              <ExternalLink className="h-4 w-4" />
-                              Open Application Form
-                            </Button>
-                            <div className="text-sm text-muted-foreground text-center">
-                              <p>You&apos;ll be redirected to our application form where you can:</p>
-                              <ul className="mt-2 space-y-1 text-left list-disc list-inside">
-                                <li>Upload your resume</li>
-                                <li>Share your portfolio</li>
-                                <li>Answer a few questions</li>
+                      <div className="space-y-6 py-6">
+                        {/* Email Icon and Information */}
+                        <div className="flex flex-col items-center text-center space-y-4">
+                          <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                              Send Your Resume
+                            </h3>
+                            <p className="text-sm text-gray-600 mb-4">
+                              Please send your resume and cover letter to:
+                            </p>
+                            <p className="text-blue-600 font-semibold text-lg">
+                              {applicationEmail}
+                            </p>
+                          </div>
+                        </div>
+
+                        {/* Information Box */}
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-5 h-5 text-blue-600 mt-0.5">
+                              <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-sm font-medium text-blue-900 mb-1">
+                                What to Include:
+                              </p>
+                              <ul className="text-sm text-blue-800 space-y-1">
+                                <li>• Your updated resume/CV</li>
+                                <li>• Cover letter explaining your interest</li>
+                                <li>• Portfolio or relevant work samples (if applicable)</li>
                               </ul>
                             </div>
-                            <div className="pt-4 border-t">
-                              <p className="text-sm text-muted-foreground text-center">
-                                Or email your application to{" "}
-                                <a href={`mailto:${applicationEmail}`} className="text-blue-600 hover:underline">
-                                  {applicationEmail}
-                                </a>
+                          </div>
+                        </div>
+
+                        {/* Response Message */}
+                        <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                          <div className="flex items-start gap-3">
+                            <div className="w-5 h-5 text-green-600 mt-0.5">
+                              <svg fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                              </svg>
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-sm font-medium text-green-900 mb-1">
+                                We&apos;ll Get Back Shortly
+                              </p>
+                              <p className="text-sm text-green-800">
+                                Thank you for your interest! We&apos;ll review your profile and get back to you shortly once it matches our requirements.
                               </p>
                             </div>
                           </div>
                         </div>
-                      ) : (
-                        // Show built-in animated form if no Google Form ID
-                        <form onSubmit={handleSubmitApplication} className="space-y-5 py-6">
-                          <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300">
-                            <Label htmlFor="name" className="text-sm font-semibold text-gray-700">
-                              Full Name *
-                            </Label>
-                            <Input
-                              id="name"
-                              name="name"
-                              value={applicationData.name}
-                              onChange={handleInputChange}
-                              placeholder="John Doe"
-                              className="h-11 bg-gray-50 border-gray-300 focus:bg-white focus:border-blue-500 transition-all duration-200"
-                              required
-                            />
-                          </div>
-                          
-                          <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-75">
-                            <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
-                              Email Address *
-                            </Label>
-                            <Input
-                              id="email"
-                              name="email"
-                              type="email"
-                              value={applicationData.email}
-                              onChange={handleInputChange}
-                              placeholder="john@example.com"
-                              className="h-11 bg-gray-50 border-gray-300 focus:bg-white focus:border-blue-500 transition-all duration-200"
-                              required
-                            />
-                          </div>
-                          
-                          <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-150">
-                            <Label htmlFor="phone" className="text-sm font-semibold text-gray-700">
-                              Phone Number *
-                            </Label>
-                            <Input
-                              id="phone"
-                              name="phone"
-                              type="tel"
-                              value={applicationData.phone}
-                              onChange={handleInputChange}
-                              placeholder="+91 1234567890"
-                              className="h-11 bg-gray-50 border-gray-300 focus:bg-white focus:border-blue-500 transition-all duration-200"
-                              required
-                            />
-                          </div>
-                          
-                          <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-200">
-                            <Label htmlFor="resume" className="text-sm font-semibold text-gray-700">
-                              Resume/CV (PDF, DOC, DOCX) *
-                            </Label>
-                            <div className="relative">
-                              <Input
-                                id="resume"
-                                name="resume"
-                                type="file"
-                                onChange={handleFileChange}
-                                accept=".pdf,.doc,.docx"
-                                className="h-11 bg-gray-50 border-gray-300 cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100 transition-all duration-200"
-                                required
-                              />
-                              <Upload className="absolute right-3 top-3 h-5 w-5 text-gray-400 pointer-events-none" />
-                            </div>
-                            {applicationData.resume && (
-                              <div className="flex items-center gap-2 p-3 bg-green-50 border border-green-200 rounded-md animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div className="h-2 w-2 bg-green-500 rounded-full"></div>
-                                <p className="text-sm text-green-700 font-medium">
-                                  {applicationData.resume.name}
-                                </p>
-                              </div>
-                            )}
-                          </div>
-                          
-                          <div className="space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-300">
-                            <Label htmlFor="coverLetter" className="text-sm font-semibold text-gray-700">
-                              Cover Letter / Why You&apos;re Interested *
-                            </Label>
-                            <Textarea
-                              id="coverLetter"
-                              name="coverLetter"
-                              value={applicationData.coverLetter}
-                              onChange={handleInputChange}
-                              placeholder="Tell us why you're interested in this position and what makes you a great fit..."
-                              rows={5}
-                              className="bg-gray-50 border-gray-300 focus:bg-white focus:border-blue-500 transition-all duration-200 resize-none"
-                              required
-                            />
-                            <p className="text-xs text-gray-500">
-                              {applicationData.coverLetter.length} / 500 characters
-                            </p>
-                          </div>
-                          
-                          <div className="pt-4 animate-in fade-in slide-in-from-bottom-4 duration-300 delay-400">
-                            <Button
-                              type="submit"
-                              disabled={isSubmitting || !isFormValid}
-                              className="w-full h-12 bg-linear-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold text-base shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-lg"
-                            >
-                              {isSubmitting ? (
-                                <span className="flex items-center gap-2">
-                                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                  </svg>
-                                  Submitting Application...
-                                </span>
-                              ) : (
-                                "Submit Application"
-                              )}
-                            </Button>
-                          </div>
-                          
-                          <div className="pt-4 border-t border-gray-200 animate-in fade-in duration-300 delay-500">
-                            <p className="text-sm text-center text-gray-600">
-                              Questions? Contact us at{" "}
-                              <a href={`mailto:${applicationEmail}`} className="text-blue-600 hover:text-blue-700 font-semibold hover:underline transition-colors">
-                                {applicationEmail}
-                              </a>
-                            </p>
-                          </div>
-                        </form>
-                      )}
+                      </div>
                     </DialogContent>
                   </Dialog>
                 </CardFooter>

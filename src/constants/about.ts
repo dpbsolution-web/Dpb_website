@@ -41,12 +41,12 @@ export const MISSION_VISION = {
   mission: {
     title: "Our Mission",
     description:
-      "To empower businesses with innovative and reliable telecommunications solutions that enhance connectivity, improve operational efficiency, and enable seamless communication across networks. We strive to make advanced telecom technology accessible, secure, and scalable for organizations of all sizes.",
+      "To provide secure, reliable, and scalable telecom solutions that improve connectivity, efficiency, and communication for businesses of all sizes.",
   },
   vision: {
     title: "Our Vision",
     description:
-      "To become a trusted global telecommunications partner, driving the future of connectivity through cutting-edge network solutions, smart communication technologies, and continuous innovation that keeps businesses connected anytime, anywhere.",
+      "To be a trusted global telecom partner, shaping the future of connectivity through innovative networks and smart communication—keeping businesses connected anytime, anywhere.",
   },
 };
 
@@ -87,5 +87,5 @@ export const ABOUT_HERO = {
   title: "About",
   highlight: "DPB Solution",
   description:
-    "We are a dedicated telecommunications solutions provider specializing in reliable connectivity, network infrastructure, and advanced communication services. Our team is committed to enabling businesses with secure, scalable, and high-performance telecom solutions that support growth and seamless digital communication.",
+    "We provide comprehensive telecom and Civil infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries. Our team is committed to enabling businesses with secure, scalable, and high-performance solutions that support growth and seamless operations.",
 };

@@ -27,23 +27,17 @@ export function ServiceCard({
 
   return (
     <motion.div
-      className="h-full perspective-1000"
+      className="h-full"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
       whileHover={{ 
-        y: -10,
+        y: -8,
+        scale: 1.02,
         transition: { duration: 0.3, ease: "easeOut" }
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
-      <motion.div
-        className="h-full"
-        animate={{
-          rotateY: isHovered ? 5 : 0,
-          rotateX: isHovered ? -5 : 0,
-        }}
-        transition={{ duration: 0.3 }}
-        style={{ transformStyle: "preserve-3d" }}
-      >
         <Card className={`h-full flex flex-col backdrop-blur-sm bg-white/95 hover:shadow-2xl transition-all duration-300 ${
           popular ? 'ring-2 ring-blue-500 shadow-blue-200/50' : 'hover:ring-2 hover:ring-blue-300'
         }`}>
@@ -53,11 +47,11 @@ export function ServiceCard({
             <div className="flex items-center space-x-3">
               <motion.div 
                 className="flex h-14 w-14 items-center justify-center rounded-xl bg-linear-to-br from-blue-500 to-indigo-600 text-white shadow-lg"
-                animate={{
-                  rotate: isHovered ? [0, -10, 10, 0] : 0,
-                  scale: isHovered ? 1.1 : 1,
+                whileHover={{
+                  rotate: [0, -5, 5, 0],
+                  scale: 1.1,
+                  transition: { duration: 0.4, ease: "easeInOut" }
                 }}
-                transition={{ duration: 0.5 }}
               >
                 <Icon className="h-7 w-7" />
               </motion.div>
@@ -96,7 +90,6 @@ export function ServiceCard({
           </div>
         </CardContent>
       </Card>
-      </motion.div>
     </motion.div>
   );
 }

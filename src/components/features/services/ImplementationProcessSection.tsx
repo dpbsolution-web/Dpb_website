@@ -13,7 +13,7 @@ export function ImplementationProcessSection() {
         
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="text-center">
-            <div className="bg-blue-700 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
               1
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Assessment & Planning</h3>
@@ -23,7 +23,7 @@ export function ImplementationProcessSection() {
           </div>
           
           <div className="text-center">
-            <div className="bg-teal-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
               2
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Design & Engineering</h3>
@@ -33,7 +33,7 @@ export function ImplementationProcessSection() {
           </div>
           
           <div className="text-center">
-            <div className="bg-blue-700 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
               3
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Deployment & Testing</h3>
@@ -43,7 +43,7 @@ export function ImplementationProcessSection() {
           </div>
           
           <div className="text-center">
-            <div className="bg-teal-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+            <div className="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">
               4
             </div>
             <h3 className="text-lg font-semibold text-gray-900 mb-2">Optimization & Support</h3>

@@ -16,8 +16,8 @@ export const siteContent = {
     name: "DPB Solution",
     tagline: "Connecting the Future with Advanced Telecom",
     description: "We provide comprehensive telecom and Civil infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",
-    founded: "2009",
-    email: "info@DPBsolution.com",
+    founded: "2019",
+    email: "info@dpbsolution.com",
     phone: "+1 (800) TELECOM",
     address: {
       street: "500 Network Plaza",
@@ -220,7 +220,7 @@ export const siteContent = {
   // About Section
   about: {
     title: "About DPB Solution",
-    description: "Founded in 2009, DPB Solution has been at the forefront of telecommunications innovation, connecting businesses and communities worldwide with cutting-edge network solutions and emerging technologies.",
+    description: "Founded in 2019, DPB Solution has been at the forefront of telecommunications innovation, connecting businesses and communities worldwide with cutting-edge network solutions and emerging technologies.",
     tabs: {
       mission: "To empower global connectivity through innovative telecommunications solutions that enable digital transformation and bridge the digital divide.",
       vision: "To be the world's most trusted telecommunications partner, driving the future of connected experiences through 5G, IoT, and satellite technologies.",
@@ -339,7 +339,7 @@ export const siteContent = {
         {
           icon: Mail,
           title: "Email",
-          value: "info@DPBsolution.com"
+          value: "info@dpbsolution.com"
         },
         {
           icon: Phone,

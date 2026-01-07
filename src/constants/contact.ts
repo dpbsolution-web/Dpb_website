@@ -2,7 +2,7 @@
 
 // Contact information
 export const CONTACT_INFO = {
-  email: "info@DPBsolution.com",
+  email: "info@dpbsolution.com",
   phone: "+91 9973789207",
   address: {
     street: "123 Business Street",

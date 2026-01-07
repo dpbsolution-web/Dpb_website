@@ -8,8 +8,16 @@ import { fadeInUp } from "@/lib/animations";
 
 export function CTASection() {
   return (
-    <section className="py-24 lg:py-32 bg-modern-gradient">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 lg:py-32 bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           {...fadeInUp}
           className="text-center max-w-3xl mx-auto"

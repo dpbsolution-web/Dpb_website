@@ -6,18 +6,17 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/common/ServiceCard";
 import { services } from "@/config/site";
-import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 
 export function ServicesSection() {
   return (
-    <section className="py-24 lg:py-32 bg-white">
+    <section className="py-24 lg:py-32 bg-linear-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16"
+          className="text-center mb-16 lg:mb-20"
         >
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -26,7 +25,10 @@ export function ServicesSection() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
-            Our Core Services
+            Our Core{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-700">
+              Services
+            </span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -53,9 +55,9 @@ export function ServicesSection() {
               }
             }
           }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 gap-10 lg:gap-12"
         >
-          {services.slice(0, 6).map((service, index) => (
+          {services.slice(0, 6).map((service) => (
             <motion.div 
               key={service.id}
               variants={{
@@ -77,7 +79,11 @@ export function ServicesSection() {
                 icon={service.icon}
                 features={service.features}
                 popular={service.popular}
-                onLearnMore={() => window.location.href = '/services'}
+                onLearnMore={() => {
+                  if (typeof window !== 'undefined') {
+                    window.location.href = '/services';
+                  }
+                }}
               />
             </motion.div>
           ))}

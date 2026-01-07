@@ -136,7 +136,9 @@ export default function TeamPage() {
     });
     setEditingId(member.id);
     // Scroll to form
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleDelete = async (id: string) => {
@@ -387,10 +389,10 @@ export default function TeamPage() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="font-bold text-lg truncate">{member.name}</p>
-                          <p className="text-sm text-blue-600">{member.role}</p>
-                          <p className="text-xs text-gray-600 mt-1 line-clamp-2">{member.description}</p>
-                          <p className="text-xs text-gray-400 mt-1">Order: {member.order}</p>
+                          <p className="font-bold text-lg truncate text-gray-900">{member.name}</p>
+                          <p className="text-sm text-blue-600 font-medium">{member.role}</p>
+                          <p className="text-xs text-gray-700 mt-1 line-clamp-2">{member.description}</p>
+                          <p className="text-xs text-gray-500 mt-1">Order: {member.order}</p>
                         </div>
                       </div>
                       <div className="flex gap-2 ml-2 shrink-0">

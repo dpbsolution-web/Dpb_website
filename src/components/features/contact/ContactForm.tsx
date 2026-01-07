@@ -361,7 +361,7 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
                 <Button
                   type="submit"
                   disabled={isSubmitting || !isFormValid}
-                  className="w-full bg-blue-700 hover:bg-blue-800 text-white border-2 border-blue-800 hover:border-blue-900 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white border-2 border-blue-600 hover:border-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {isSubmitting ? (
                     "Sending..."

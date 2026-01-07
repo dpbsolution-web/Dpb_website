@@ -49,7 +49,7 @@ export function FeaturesSection() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.5 }}
                 >
-                  <CheckCircle className="h-6 w-6 text-emerald-500 shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-blue-600 shrink-0" />
                   <span className="text-lg text-gray-700 dark:text-gray-300">{feature}</span>
                 </motion.div>
               ))}

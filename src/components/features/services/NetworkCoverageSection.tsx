@@ -28,7 +28,7 @@ export function NetworkCoverageSection() {
           {networkCoverage.map((region, index) => (
             <motion.div key={index} variants={scaleIn} className="text-center">
               <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
-                <div className="text-3xl font-bold text-blue-700 mb-2">{region.coverage}</div>
+                <div className="text-3xl font-bold text-blue-600 mb-2">{region.coverage}</div>
                 <div className="text-gray-700 font-medium">{region.region}</div>
               </div>
             </motion.div>

@@ -10,7 +10,7 @@ export const CAREERS_CONFIG = {
 // Job positions data
 export const POSITIONS = [
   {
-    title: "ISP Enggs for PAN India",
+    title: "ISP Engineers for PAN India",
     department: "Network Engineering",
     location: "PAN India",
     type: "Full-time",
@@ -27,7 +27,7 @@ export const POSITIONS = [
     ],
   },
   {
-    title: "OSP/OFC Enggs for PAN India",
+    title: "OSP/OFC Engineers for PAN India",
     department: "Field Operations",
     location: "PAN India",
     type: "Full-time",
@@ -88,8 +88,8 @@ export const CULTURE_VALUES = [
 
 // Company stats
 export const COMPANY_STATS = [
-  { value: "50+", label: "Team Members" },
-  { value: "25+", label: "Countries Represented" },
+  { value: "100+", label: "Team Members" },
+  { value: "10+", label: "Multiple Cities In India" },
   { value: "4.8/5", label: "Employee Satisfaction" },
 ];
 

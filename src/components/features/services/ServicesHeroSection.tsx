@@ -14,14 +14,14 @@ export function ServicesHeroSection() {
           Advanced Telecommunications
         </Badge>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
-          Our <span className="text-blue-700">Telecom Services</span>
+          Our <span className="text-blue-600">Telecom Services</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed">
           Comprehensive telecommunications solutions powered by cutting-edge technology. 
           From 5G networks to satellite communications, we connect your world seamlessly.
         </p>
         <Link href="/contact">
-          <Button size="lg" className="bg-blue-700 hover:bg-blue-800 text-white px-8">
+          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8">
             Get Connected Today
           </Button>
         </Link>

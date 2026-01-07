@@ -84,7 +84,7 @@ export function Footer() {
               className="rounded-lg object-contain"
             />
             <span className="text-sm text-white font-['Inter']">
-              © {new Date().getFullYear()} {companyInfo.name}. All rights reserved.
+              © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {companyInfo.name}. All rights reserved.
             </span>
           </div>
           
@@ -95,7 +95,7 @@ export function Footer() {
                 href={companyInfo.social.linkedin} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="h-5 w-5" />
@@ -104,7 +104,7 @@ export function Footer() {
                 href={companyInfo.social.twitter} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter className="h-5 w-5" />
@@ -113,7 +113,7 @@ export function Footer() {
                 href={companyInfo.social.facebook} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-blue-500 transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook className="h-5 w-5" />

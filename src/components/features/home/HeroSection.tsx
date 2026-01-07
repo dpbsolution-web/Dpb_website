@@ -52,7 +52,7 @@ export function HeroSection() {
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/50" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/40 to-black/60" />
       </div>
       
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
@@ -159,7 +159,7 @@ export function HeroSection() {
               whileHover={{ y: -5 }}
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
-                {inView && <CountUp end={16} duration={2.5} suffix="+" />}
+                {inView && <CountUp end={6} duration={2.5} suffix="+" />}
               </div>
               <div className="text-sm md:text-base text-white font-semibold" style={{ textShadow: '1px 1px 6px rgba(0,0,0,0.8)' }}>
                 Years Experience

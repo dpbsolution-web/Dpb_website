@@ -10,8 +10,8 @@
   --popover: 0 0% 100%;
   --popover-foreground: 0 0% 9%;
   
-  /* Primary: Nearly Black */
-  --primary: 0 0% 9%;
+  /* Primary: Professional Blue - Brand Color */
+  --primary: 217 91% 60%;
   --primary-foreground: 0 0% 100%;
   
   /* Secondary: Very Light Gray */
@@ -22,9 +22,9 @@
   --muted: 0 0% 96%;
   --muted-foreground: 0 0% 45%;
   
-  /* Accent: SyncOffice Yellow */
-  --accent: 45 100% 51%;
-  --accent-foreground: 0 0% 9%;
+  /* Accent: Complementary Blue */
+  --accent: 217 91% 65%;
+  --accent-foreground: 0 0% 100%;
   
   /* Destructive */
   --destructive: 0 84% 60%;
@@ -33,7 +33,7 @@
   /* Border and input */
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --ring: 45 100% 51%;
+  --ring: 217 91% 60%;
 }
 
 /* Custom animations for Hero section */

@@ -16,7 +16,7 @@ export function Header() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60  bg-white shadow-sm" role="banner">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 bg-white shadow-sm" role="banner">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2" aria-label="DPB Solution Home">
@@ -37,10 +37,10 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-primary ${
+              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
                 isActive(item.href)
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                  ? "text-blue-600"
+                  : "text-gray-700"
               }`}
               aria-current={isActive(item.href) ? 'page' : undefined}
             >
@@ -86,10 +86,10 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className={`text-sm font-medium transition-colors hover:text-primary p-2 rounded-lg ${
+                className={`text-sm font-medium transition-colors hover:text-blue-600 p-2 rounded-lg ${
                   isActive(item.href)
-                    ? "text-primary bg-muted"
-                    : "text-muted-foreground"
+                    ? "text-blue-600 bg-blue-50"
+                    : "text-gray-700"
                 }`}
               >
                 {item.name}

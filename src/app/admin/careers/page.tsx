@@ -71,7 +71,6 @@ export default function CareersPage() {
         }
       });
       const data = await response.json();
-      console.log('Fetched openings:', data); // Debug log
       setOpenings(Array.isArray(data) ? data : []);
     } catch (error) {
       console.error("Failed to fetch openings:", error);
@@ -144,7 +143,9 @@ export default function CareersPage() {
     });
     setEditingId(opening.id);
     // Scroll to form
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (typeof window !== 'undefined') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const handleDelete = async (id: string) => {

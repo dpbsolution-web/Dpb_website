@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     default: "DPB Solution - Telecommunications & IT Solutions",
     template: "DPB Solution | %s",
   },
-  description: "Leading provider of telecommunications and IT solutions, connecting businesses to the future with cutting-edge technology and unparalleled service. Empowering Digital Transformation since 2009.",
+  description: "Leading provider of telecommunications and IT solutions, connecting businesses to the future with cutting-edge technology and unparalleled service. Empowering Digital Transformation since 2019.",
   keywords: [
     "telecommunications",
     "IT solutions",

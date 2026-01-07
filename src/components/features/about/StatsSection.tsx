@@ -8,7 +8,7 @@ export function StatsSection() {
   const stats = [
     { icon: Users, label: "Team Members", value: "100+" },
     { icon: Target, label: "Happy Clients", value: "80+" },
-    { icon: Award, label: "Years Experience", value: "16+" },
+    { icon: Award, label: "Years Experience", value: "6+" },
     { icon: Globe, label: "Cities in India", value: "Multiple" },
   ];
 

@@ -103,19 +103,22 @@ export default function LoginPage() {
 
         {/* Floating Particles */}
         <div className="absolute inset-0">
-          {mounted && [...Array(30)].map((_, i) => (
-            <div
-              key={i}
-              className="particle absolute w-1 h-1 bg-cyan-400 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animation: `float ${5 + Math.random() * 10}s linear infinite`,
-                animationDelay: `${Math.random() * 5}s`,
-                opacity: Math.random() * 0.5 + 0.2,
-              }}
-            />
-          ))}
+          {mounted && [...Array(30)].map((_, i) => {
+            const seed = i * 7.3; // Use index as seed for consistent positioning
+            return (
+              <div
+                key={i}
+                className="particle absolute w-1 h-1 bg-cyan-400 rounded-full"
+                style={{
+                  left: `${(seed * 3.7) % 100}%`,
+                  top: `${(seed * 2.3) % 100}%`,
+                  animation: `float ${5 + (seed % 10)}s linear infinite`,
+                  animationDelay: `${(seed % 5)}s`,
+                  opacity: ((seed % 50) / 100) + 0.2,
+                }}
+              />
+            );
+          })}
         </div>
       </div>
 

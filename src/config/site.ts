@@ -1,10 +1,6 @@
 import {
   Wifi,
-  Shield,
-  Cloud,
-  Phone,
   Network,
-  Server,
   Award,
   Target,
   Heart,
@@ -18,7 +14,7 @@ export const companyInfo = {
   tagline: "Empowering Digital Transformation",
   description:
     "We provide comprehensive telecom and Civil infrastructure solutions that connect businesses, enable digital transformation, and drive operational excellence across industries.",
-  founded: "2009",
+  founded: "2019",
   employees: "100+",
   clients: "80+",
   countries: "Multiple Cities in India",
@@ -26,7 +22,7 @@ export const companyInfo = {
     email: "info@dpbsolution.com",
     phone: "+91 9973789207",
     address: "Patna Bihar, 800001, India",
-    hours: "Mon-Fri 8:00 AM - 6:00 PM PST",
+    hours: "Mon-Fri 8:00 AM - 6:00 PM IST",
   },
   social: {
     linkedin: "https://www.linkedin.com/in/dpb-solution-369b58239",
@@ -63,7 +59,7 @@ export const services = [
       "Provide Skilled Manpower",
       "Regular Training",
       "Skill Development Session",
-      "Full fill Govt. Compliances",
+      "Fulfill Govt. Compliances",
     ],
     pricing: "Custom Pricing",
     popular: true,
@@ -75,44 +71,12 @@ export const services = [
       "Expert ISP and Microwave deployment services with comprehensive safety training.",
     icon: Radio,
     features: [
-      "Skilled ISP Enggs with Team",
-      "Rigger and Enggs for MW",
+      "Skilled ISP Engineers with Team",
+      "Rigger and Engineers for MW",
       "Offer Safety Training",
-      "Organise Farm Tokli Training Regularly",
+      "Organize Farm Tower Training Regularly",
     ],
     pricing: "Custom Pricing",
-    popular: false,
-  },
-  {
-    id: "cloud-services",
-    title: "Cloud Services",
-    shortDescription:
-      "Secure, scalable cloud infrastructure and migration services.",
-    icon: Cloud,
-    features: [
-      "Cloud Migration",
-      "Hybrid Cloud Solutions",
-      "Data Backup & Recovery",
-      "Cloud Security",
-      "Multi-Cloud Management",
-    ],
-    pricing: "Starting from $199/month",
-    popular: false,
-  },
-  {
-    id: "voip-communications",
-    title: "VoIP Communications",
-    shortDescription:
-      "Modern voice over IP solutions for seamless business communications.",
-    icon: Phone,
-    features: [
-      "Unified Communications",
-      "Video Conferencing",
-      "Mobile Integration",
-      "Call Analytics",
-      "Auto Attendant",
-    ],
-    pricing: "Starting from $25/user/month",
     popular: false,
   },
   {
@@ -131,79 +95,9 @@ export const services = [
     pricing: "Custom Pricing",
     popular: false,
   },
-  {
-    id: "cybersecurity",
-    title: "Cybersecurity",
-    shortDescription:
-      "Comprehensive security solutions to protect your digital assets.",
-    icon: Shield,
-    features: [
-      "Threat Detection & Response",
-      "Firewall Management",
-      "Security Audits",
-      "Employee Training",
-      "Compliance Support",
-    ],
-    pricing: "Starting from $499/month",
-    popular: true,
-  },
-  {
-    id: "managed-services",
-    title: "Managed IT Services",
-    shortDescription:
-      "Complete IT management and support for your business operations.",
-    icon: Server,
-    features: [
-      "24/7 IT Support",
-      "Proactive Monitoring",
-      "System Maintenance",
-      "Software Updates",
-      "Help Desk Services",
-    ],
-    pricing: "Starting from $150/user/month",
-    popular: false,
-  },
 ];
 
-// Team Members
-export const teamMembers = [
-  {
-    id: 1,
-    name: "David B. Peterson",
-    role: "Chief Executive Officer",
-    bio: "With over 20 years in telecommunications, David leads DPB Solution's vision for digital transformation.",
-    image: "/images/team/david-peterson.jpg",
-    linkedin: "#",
-    email: "david@dpbsolution.com",
-  },
-  {
-    id: 2,
-    name: "Sarah Chen",
-    role: "Chief Technology Officer",
-    bio: "Sarah oversees our technical strategy and innovation initiatives, driving cutting-edge solutions.",
-    image: "/images/team/sarah-chen.jpg",
-    linkedin: "#",
-    email: "sarah@dpbsolution.com",
-  },
-  {
-    id: 3,
-    name: "Michael Rodriguez",
-    role: "VP of Engineering",
-    bio: "Michael leads our engineering teams in delivering robust, scalable infrastructure solutions.",
-    image: "/images/team/michael-rodriguez.jpg",
-    linkedin: "#",
-    email: "michael@dpbsolution.com",
-  },
-  {
-    id: 4,
-    name: "Emily Watson",
-    role: "Head of Security",
-    bio: "Emily ensures our security practices meet the highest industry standards and compliance requirements.",
-    image: "/images/team/emily-watson.jpg",
-    linkedin: "#",
-    email: "emily@dpbsolution.com",
-  },
-];
+
 
 // Testimonials
 export const testimonials = [

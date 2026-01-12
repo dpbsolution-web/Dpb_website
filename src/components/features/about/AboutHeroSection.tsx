@@ -7,7 +7,7 @@ export function AboutHeroSection() {
   return (
     <motion.section 
       {...fadeInUp}
-      className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden"
+      className=" bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden"
     >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
@@ -20,7 +20,7 @@ export function AboutHeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
           About{" "}
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
+          <span className="text-transparent bg-clip-textbg-gradient-to-r from-blue-600 to-indigo-600">
             DPB Solution
           </span>
         </h1>

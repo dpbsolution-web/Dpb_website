@@ -16,7 +16,7 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-linear-to-br from-blue-50 to-white">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4  bg-linear-to-br from-blue-50 to-white">
       <div className="max-w-md w-full text-center space-y-6">
         <div className="mx-auto w-24 h-24 bg-red-100 rounded-full flex items-center justify-center">
           <svg

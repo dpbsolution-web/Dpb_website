@@ -59,12 +59,11 @@ export function ValuesSection() {
                 }}
                 className="h-full"
               >
-                <Card className="h-full bg-linear-to-br from-white to-gray-50 border-2 border-gray-200 hover:border-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group">
+                <Card className="h-full  bg-linear-to-br from-white to-gray-50 border-2 border-gray-200 hover:border-blue-500 shadow-lg hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 group">
                   <CardContent className="p-8 flex flex-col h-full">
-                    {/* Icon */}
                     <div className="mb-6 flex justify-center">
                       <motion.div 
-                        className="bg-linear-to-br from-blue-600 to-blue-700 p-4 rounded-xl w-16 h-16 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300"
+                        className=" bg-linear-to-br from-blue-600 to-blue-700 p-4 rounded-xl w-16 h-16 flex items-center justify-center shadow-md group-hover:shadow-lg transition-all duration-300"
                         whileHover={{ 
                           scale: 1.1, 
                           rotate: [0, -5, 5, 0],
@@ -74,16 +73,10 @@ export function ValuesSection() {
                         <Icon className="h-8 w-8 text-white" />
                       </motion.div>
                     </div>
-                    
-                    {/* Divider */}
                     <div className="h-px bg-linear-to-r from-transparent via-gray-200 to-transparent group-hover:via-blue-500/30 mb-6 transition-all duration-300" />
-                    
-                    {/* Title */}
                     <h3 className="text-xl font-bold text-gray-900 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">
                       {value.title}
                     </h3>
-                    
-                    {/* Description */}
                     <p className="text-sm text-gray-700 group-hover:text-gray-900 text-center leading-relaxed transition-colors duration-300">
                       {value.description}
                     </p>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight, Zap, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { companyInfo } from "@/config/site";
 import CountUp from "react-countup";
@@ -39,13 +39,55 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden min-h-[85vh] lg:min-h-[90vh] flex items-center">
+      {/* Animated Gradient Background */}
+      <motion.div 
+        className="absolute inset-0 z-0"
+        animate={{
+          background: [
+            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
+            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          ],
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      />
+      
+      {/* Floating Elements */}
+      {[...Array(5)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-32 h-32 bg-white/10 rounded-full blur-3xl"
+          animate={{
+            y: [0, -30, 0],
+            x: [0, 20, 0],
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 5 + i,
+            repeat: Infinity,
+            delay: i * 0.5,
+            ease: "easeInOut",
+          }}
+          style={{
+            top: `${20 + i * 15}%`,
+            left: `${10 + i * 20}%`,
+          }}
+        />
+      ))}
+
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/max-iGsjSLxnAe8-unsplash.jpg"
           alt="Modern telecommunications infrastructure and network connectivity showcasing DPB Solutions expertise"
           fill
-          className="object-cover brightness-50"
+          className="object-cover brightness-50 mix-blend-overlay"
           priority
           quality={85}
           sizes="100vw"
@@ -96,7 +138,7 @@ export function HeroSection() {
 
           <motion.div 
             variants={fadeIn}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button size="lg" className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700 text-white shadow-2xl font-semibold" asChild>

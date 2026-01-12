@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function ServicesCTASection() {
   return (
-    <section className="py-20 bg-linear-to-r from-blue-600 via-blue-700 to-blue-800">
+    <section className="py-20bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-3xl font-bold text-white mb-4">
           Ready to Transform Your Network?

@@ -17,6 +17,26 @@ interface TeamMember {
   active?: boolean;
 }
 
+// Skeleton component for team member cards
+function TeamMemberSkeleton() {
+  return (
+    <Card className="text-center h-full animate-pulse">
+      <CardHeader>
+        <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4" />
+        <div className="h-5 w-3/4 bg-gray-300 rounded mx-auto mb-2" />
+        <div className="h-4 w-1/2 bg-gray-200 rounded mx-auto" />
+      </CardHeader>
+      <CardContent>
+        <div className="space-y-2">
+          <div className="h-3 w-full bg-gray-200 rounded" />
+          <div className="h-3 w-5/6 bg-gray-200 rounded mx-auto" />
+          <div className="h-3 w-4/6 bg-gray-200 rounded mx-auto" />
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
 export function TeamSection() {
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
   const [loading, setLoading] = useState(true);
@@ -53,8 +73,14 @@ export function TeamSection() {
         </motion.div>
         
         {loading ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">Loading team members...</p>
+          <div 
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            role="status" 
+            aria-label="Loading team members"
+          >
+            {[1, 2, 3, 4].map((i) => (
+              <TeamMemberSkeleton key={i} />
+            ))}
           </div>
         ) : teamMembers.length === 0 ? (
           <div className="text-center py-12">

@@ -78,7 +78,7 @@ export default function SolutionsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-linear-to-br from-violet-50 via-emerald-50 to-blue-50 py-20">
+      <section className="relative  bg-linear-to-br from-violet-50 via-emerald-50 to-blue-50 py-20">
         <div className="absolute inset-0 bg-grid-slate-100 opacity-25" />
         
         <div className="relative container mx-auto px-4">

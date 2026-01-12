@@ -3,9 +3,9 @@ import {
   HeroSection,
   ServicesSection,
   FeaturesSection,
-  TestimonialsSection,
-  CTASection 
+  TestimonialsSection
 } from "@/components/features/home";
+import { CertificationsSection } from "@/components/features/home/CertificationsSection";
 
 export const metadata: Metadata = {
   title: 'Home - Empowering Digital Transformation',
@@ -25,10 +25,10 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <HeroSection />
+      <CertificationsSection />
       <ServicesSection />
       <FeaturesSection />
       <TestimonialsSection />
-      <CTASection />
     </div>
   );
 }

@@ -5,6 +5,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import JsonLd from "@/components/JsonLd";
+import { FloatingActionButton } from "@/components/common/FloatingActionButton";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -107,7 +109,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <head>
         <JsonLd />
       </head>
@@ -121,6 +123,8 @@ export default function RootLayout({
           </main>
           <Footer />
         </div>
+        <ScrollToTop />
+        <FloatingActionButton />
         <Toaster />
       </body>
     </html>

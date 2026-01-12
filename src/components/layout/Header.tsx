@@ -16,19 +16,33 @@ export function Header() {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 bg-white shadow-sm" role="banner">
+    <motion.header 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md shadow-sm" 
+      role="banner"
+    >
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2" aria-label="DPB Solution Home">
-          <Image 
-            src="/images/logo.jpeg" 
-            alt={`${companyInfo.name} Logo`}
-            width={40}
-            height={40}
-            className="rounded-lg object-contain"
-            priority
-          />
-          <span className="text-xl font-bold">{companyInfo.name}</span>
+          <motion.div
+            whileHover={{ scale: 1.05, rotate: 5 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Image 
+              src="/images/logo.jpeg" 
+              alt={`${companyInfo.name} Logo`}
+              width={40}
+              height={40}
+              className="rounded-lg object-contain"
+              priority
+            />
+          </motion.div>
+          <span className="text-xl font-bold bg-linear-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+            {companyInfo.name}
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -37,7 +51,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+              className={`text-sm font-medium transition-colors hover:text-blue-600 relative ${
                 isActive(item.href)
                   ? "text-blue-600"
                   : "text-gray-700"
@@ -45,6 +59,13 @@ export function Header() {
               aria-current={isActive(item.href) ? 'page' : undefined}
             >
               {item.name}
+              {isActive(item.href) && (
+                <motion.div
+                  layoutId="activeLink"
+                  className="absolute -bottom-2 left-0 right-0 h-0.5 bg-linear-to-r from-blue-600 to-indigo-600 rounded-full"
+                  transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                />
+              )}
             </Link>
           ))}
         </nav>
@@ -98,6 +119,6 @@ export function Header() {
           </nav>
         </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 }

@@ -11,6 +11,7 @@ import {
   Clock, 
   Briefcase,
 } from "lucide-react";
+import { useEffect } from "react";
 import {
   Dialog,
   DialogContent,
@@ -27,12 +28,57 @@ import {
 } from "@/constants/careers";
 import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 
+// Skeleton component for job cards
+function JobCardSkeleton() {
+  return (
+    <Card className="h-full animate-pulse">
+      <CardHeader className="pb-3">
+        <div className="flex items-center justify-between mb-4">
+          <div className="bg-gray-200 p-3 rounded-lg h-12 w-12" />
+          <div className="bg-gray-200 h-6 w-20 rounded" />
+        </div>
+        <div className="h-6 w-3/4 bg-gray-300 rounded mb-2" />
+        <div className="h-4 w-1/2 bg-gray-200 rounded" />
+      </CardHeader>
+      
+      <CardContent>
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="h-4 bg-gray-200 rounded" />
+          <div className="h-4 bg-gray-200 rounded" />
+        </div>
+        
+        <div>
+          <div className="h-4 w-32 bg-gray-300 rounded mb-2" />
+          <div className="space-y-2">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="h-3 bg-gray-200 rounded" />
+            ))}
+          </div>
+        </div>
+      </CardContent>
+      
+      <CardFooter>
+        <div className="h-10 w-full bg-gray-300 rounded-lg" />
+      </CardFooter>
+    </Card>
+  );
+}
+
 export default function CareersPage() {
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoadingJobs, setIsLoadingJobs] = useState(true);
   
   // Get configuration from constants
   const { applicationEmail } = CAREERS_CONFIG;
+  
+  // Simulate loading time for static data
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoadingJobs(false);
+    }, 700);
+    return () => clearTimeout(timer);
+  }, []);
   
   // COMMENTED OUT: Fetch active job openings from database
   // useEffect(() => {
@@ -66,15 +112,15 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <motion.section {...fadeInUp} className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
-        {/* Background Pattern */}
+    <>
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <motion.section {...fadeInUp} className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(59 130 246) 1px, transparent 0)',
             backgroundSize: '40px 40px'
-          }} />
+          }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -130,7 +176,7 @@ export default function CareersPage() {
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
-          <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-slate-900/80"></div>
+          <div className="absolute inset-0bg-gradient-to-r from-blue-900/80 to-slate-900/80"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -240,7 +286,17 @@ export default function CareersPage() {
             </p>
           </div>
           
-          {hasOpenings ? (
+          {isLoadingJobs ? (
+            <div 
+              className="grid lg:grid-cols-2 gap-8"
+              role="status"
+              aria-label="Loading job positions"
+            >
+              {[1, 2, 3, 4].map((i) => (
+                <JobCardSkeleton key={i} />
+              ))}
+            </div>
+          ) : hasOpenings ? (
             <motion.div
               variants={staggerContainer}
               initial="initial"
@@ -454,6 +510,7 @@ export default function CareersPage() {
           </div>
         </div>
       </motion.section>
-    </div>
+      </div>
+    </>
   );
 }

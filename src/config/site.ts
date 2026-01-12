@@ -39,6 +39,7 @@ export const services = [
     shortDescription:
       "Complete Optical Fiber Cable solutions for high-speed connectivity and network infrastructure.",
     icon: Wifi,
+    image: "/images/ai-generated-9143280_1280.jpg",
     features: [
       "OFC Deployment",
       "OFC Maintenance",
@@ -55,6 +56,7 @@ export const services = [
     shortDescription:
       "Skilled manpower solutions with comprehensive training and government compliance.",
     icon: Users,
+    image: "/images/pexels-cottonbro-6804068.jpg",
     features: [
       "Provide Skilled Manpower",
       "Regular Training",
@@ -70,6 +72,7 @@ export const services = [
     shortDescription:
       "Expert ISP and Microwave deployment services with comprehensive safety training.",
     icon: Radio,
+    image: "/images/network-3396348.jpg",
     features: [
       "Skilled ISP Engineers with Team",
       "Rigger and Engineers for MW",
@@ -85,6 +88,7 @@ export const services = [
     shortDescription:
       "Robust network design, implementation, and management services.",
     icon: Network,
+    image: "/images/cyber-3400789.jpg",
     features: [
       "Network Design & Planning",
       "LAN/WAN Setup",

@@ -8,7 +8,7 @@ import { fadeInUp } from "@/lib/animations";
 
 export function ServicesHeroSection() {
   return (
-    <motion.section {...fadeInUp} className="bg-linear-to-brm-blue-50 via-teal-50 to-blue-100 py-24 lg:py-32">
+    <motion.section {...fadeInUp} className="bg-linear-to-br from-blue-50 via-teal-50 to-blue-100 py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <Badge className="mb-6 bg-teal-100 text-teal-700 border-teal-200 text-sm md:text-base">
           Advanced Telecommunications

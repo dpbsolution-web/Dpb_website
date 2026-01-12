@@ -50,11 +50,9 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen relative overflow-hidden bg-black">
-      {/* Animated Matrix-style Background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-linear-to-brrom-cyan-950 via-blue-950 to-purple-950 opacity-70"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-cyan-950 via-blue-950 to-purple-950 opacity-70"></div>
         
-        {/* Animated Grid Lines */}
         <svg className="absolute inset-0 w-full h-full opacity-30">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -71,7 +69,6 @@ export default function LoginPage() {
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)"/>
           
-          {/* Animated Circuit Lines */}
           <g className="circuit-lines">
             <line x1="10%" y1="20%" x2="90%" y2="20%" stroke="url(#gradient1)" strokeWidth="2" strokeDasharray="5,10">
               <animate attributeName="x1" values="10%;90%;10%" dur="8s" repeatCount="indefinite"/>
@@ -84,7 +81,6 @@ export default function LoginPage() {
             </line>
           </g>
           
-          {/* Glowing Nodes */}
           {[...Array(12)].map((_, i) => (
             <circle
               key={i}
@@ -101,10 +97,9 @@ export default function LoginPage() {
           ))}
         </svg>
 
-        {/* Floating Particles */}
         <div className="absolute inset-0">
           {mounted && [...Array(30)].map((_, i) => {
-            const seed = i * 7.3; // Use index as seed for consistent positioning
+            const seed = i * 7.3;
             return (
               <div
                 key={i}
@@ -122,13 +117,10 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Main Container */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-6xl flex items-center gap-12">
           
-          {/* Left Side - Info Panel */}
           <div className="hidden lg:flex flex-1 flex-col space-y-8 animate-slide-in-left">
-            {/* Logo Section */}
             <div className="space-y-4">
               <div className="inline-flex items-center gap-3">
                 <div className="relative">
@@ -154,7 +146,6 @@ export default function LoginPage() {
               </p>
             </div>
 
-            {/* Feature Cards */}
             <div className="space-y-4">
               {[
                 { icon: Server, label: "Enterprise Grade", desc: "99.99% Uptime SLA" },
@@ -166,7 +157,7 @@ export default function LoginPage() {
                   className="group flex items-start gap-4 p-4 rounded-xl bg-white/5 border border-cyan-500/20 backdrop-blur-sm hover:bg-white/10 hover:border-cyan-400/40 transition-all duration-300 hover:translate-x-2"
                   style={{ animationDelay: `${i * 0.1}s` }}
                 >
-                  <div className="w-12 h-12 rounded-lg bg-linear-to-brrom-cyan-500/20 to-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-lg bg-linear-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                     <feature.icon className="w-6 h-6 text-cyan-400" />
                   </div>
                   <div className="flex-1">
@@ -177,7 +168,6 @@ export default function LoginPage() {
               ))}
             </div>
 
-            {/* Stats */}
             <div className="grid grid-cols-3 gap-4 pt-8 border-t border-cyan-500/20">
               {[
                 { value: "9+", label: "Clients" },
@@ -194,19 +184,16 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Right Side - Login Form */}
           <div className="flex-1 max-w-md w-full animate-slide-in-right">
             <Card className="relative backdrop-blur-2xl bg-linear-to-br from-white/10 to-white/5 border-2 border-cyan-500/30 shadow-2xl shadow-cyan-500/20 overflow-hidden">
-              {/* Animated Glowing Border */}
               <div className="absolute inset-0 rounded-lg">
                 <div className="absolute inset-0 bg-linear-to-r from-cyan-500/0 via-cyan-500/50 to-cyan-500/0 animate-border-flow"></div>
               </div>
               
-              {/* Header */}
               <div className="p-8 pb-6 relative">
                 <div className="flex items-center justify-center mb-4">
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-xl bg-linear-to-brrom-cyan-400 to-blue-600 flex items-center justify-center">
+                    <div className="w-14 h-14 rounded-xl bg-linear-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
                       <Lock className="w-7 h-7 text-white" />
                     </div>
                     <div className="absolute inset-0 rounded-xl bg-linear-to-br from-cyan-400 to-blue-600 opacity-50 blur-lg animate-pulse"></div>
@@ -220,10 +207,8 @@ export default function LoginPage() {
                 </p>
               </div>
 
-              {/* Form */}
               <div className="px-8 pb-8 relative">
                 <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Email Input */}
                   <div className="space-y-2">
                     <Label htmlFor="email" className="text-white font-medium flex items-center gap-2 text-sm">
                       <Mail className="w-4 h-4 text-cyan-400" />
@@ -241,7 +226,6 @@ export default function LoginPage() {
                     />
                   </div>
 
-                  {/* Password Input */}
                   <div className="space-y-2">
                     <Label htmlFor="password" className="text-white font-medium flex items-center gap-2 text-sm">
                       <Lock className="w-4 h-4 text-cyan-400" />
@@ -259,7 +243,6 @@ export default function LoginPage() {
                     />
                   </div>
 
-                  {/* Error Message */}
                   {error && (
                     <div className="relative overflow-hidden rounded-lg bg-red-500/10 border border-red-500/30 p-4 backdrop-blur-sm animate-shake">
                       <div className="flex items-center gap-3">
@@ -268,11 +251,10 @@ export default function LoginPage() {
                         </div>
                         <p className="text-red-300 text-sm font-medium">{error}</p>
                       </div>
-                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-rrom-transparent via-red-500 to-transparent animate-slide"></div>
+                      <div className="absolute top-0 left-0 right-0 h-0.5 bg-linear-to-r from-transparent via-red-500 to-transparent animate-slide"></div>
                     </div>
                   )}
 
-                  {/* Submit Button */}
                   <Button 
                     type="submit" 
                     className="relative w-full h-13 bg-linear-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold text-base shadow-lg shadow-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/70 transition-all duration-300 overflow-hidden group border-0" 
@@ -293,7 +275,6 @@ export default function LoginPage() {
                     )}
                   </Button>
 
-                  {/* Forgot Password */}
                   <div className="text-center">
                     <Link href="/admin/forgot-password">
                       <button 
@@ -308,7 +289,6 @@ export default function LoginPage() {
                 </form>
               </div>
 
-              {/* Footer */}
               <div className="px-8 pb-8 pt-4 border-t border-cyan-500/20 relative">
                 <div className="flex items-center justify-center gap-6 text-xs text-gray-400">
                   <span className="flex items-center gap-1.5">
@@ -332,7 +312,6 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Custom Animations */}
       <style jsx global>{`
         @keyframes shake {
           0%, 100% { transform: translateX(0); }

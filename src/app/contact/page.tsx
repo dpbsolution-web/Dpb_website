@@ -79,15 +79,15 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
-        {/* Background Pattern */}
+    <>
+      <div className="min-h-screen bg-white">
+        {/* Hero Section */}
+        <section className=" bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(59 130 246) 1px, transparent 0)',
             backgroundSize: '40px 40px'
-          }} />
+          }}></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -100,8 +100,8 @@ export default function ContactPage() {
           <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Ready to start your next project? We&apos;d love to hear from you. 
             Send us a message and we&apos;ll respond as soon as possible.
-          </p>
-        </div>
+        </p>
+      </div>
       </section>
 
       {/* Contact Form Section */}
@@ -388,7 +388,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

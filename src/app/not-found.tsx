@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function NotFound() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-linear-to-br from-blue-50 to-white">
+    <div className="flex flex-col items-center justify-center min-h-screen px-4  bg-linear-to-br from-blue-50 to-white">
       <div className="max-w-2xl w-full text-center space-y-6">
         <div className="mb-8">
           <Image

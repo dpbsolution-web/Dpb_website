@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { Toaster as SonnerToaster } from "sonner";
 import JsonLd from "@/components/JsonLd";
 import { FloatingActionButton } from "@/components/common/FloatingActionButton";
 import { ScrollToTop } from "@/components/common/ScrollToTop";
@@ -126,6 +127,7 @@ export default function RootLayout({
         <ScrollToTop />
         <FloatingActionButton />
         <Toaster />
+        <SonnerToaster position="top-right" richColors />
       </body>
     </html>
   );

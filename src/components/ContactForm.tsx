@@ -9,6 +9,13 @@ import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
 import emailjs from '@emailjs/browser';
+import {
+  VALIDATION_RULES,
+  ERROR_MESSAGES,
+  BUTTON_LABELS,
+  TOAST_MESSAGES,
+  EMAIL_PATTERN,
+} from "@/constants/form-validation";
 
 interface ContactFormProps {
   showContactInfo?: boolean;
@@ -36,21 +43,21 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
       case 'name':
-        if (!value.trim()) return 'Name is required';
-        if (value.trim().length < 2) return 'Name must be at least 2 characters';
-        if (!/^[a-zA-Z\s]+$/.test(value)) return 'Name can only contain letters';
+        if (!value.trim()) return ERROR_MESSAGES.NAME.REQUIRED;
+        if (value.trim().length < VALIDATION_RULES.NAME.MIN) return ERROR_MESSAGES.NAME.MIN;
+        if (!/^[a-zA-Z\s]+$/.test(value)) return ERROR_MESSAGES.NAME.INVALID;
         return undefined;
       case 'email':
-        if (!value.trim()) return 'Email is required';
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return 'Please enter a valid email';
+        if (!value.trim()) return ERROR_MESSAGES.EMAIL.REQUIRED;
+        if (!EMAIL_PATTERN.test(value)) return ERROR_MESSAGES.EMAIL.INVALID;
         return undefined;
       case 'subject':
-        if (!value.trim()) return 'Subject is required';
-        if (value.trim().length < 3) return 'Subject must be at least 3 characters';
+        if (!value.trim()) return ERROR_MESSAGES.SUBJECT.REQUIRED;
+        if (value.trim().length < VALIDATION_RULES.SUBJECT.MIN) return ERROR_MESSAGES.SUBJECT.MIN;
         return undefined;
       case 'message':
-        if (!value.trim()) return 'Message is required';
-        if (value.trim().length < 10) return 'Message must be at least 10 characters';
+        if (!value.trim()) return ERROR_MESSAGES.MESSAGE.REQUIRED;
+        if (value.trim().length < VALIDATION_RULES.MESSAGE.MIN) return ERROR_MESSAGES.MESSAGE.MIN;
         return undefined;
       default:
         return undefined;
@@ -145,11 +152,11 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
         setErrors({});
         setTouched({});
         
-        toast.success("Message sent successfully!");
+        toast.success(TOAST_MESSAGES.SUCCESS.MESSAGE_SENT);
       }
     } catch (error) {
       console.error('EmailJS Error:', error);
-      toast.error("Failed to send message", {
+      toast.error(TOAST_MESSAGES.ERROR.MESSAGE_FAILED, {
         description: "Please try again or contact us directly at info@dpbsolution.com",
       });
     } finally {
@@ -331,7 +338,7 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
                     "Sending..."
                   ) : (
                     <>
-                      Send Message
+                      {BUTTON_LABELS.SEND_MESSAGE}
                       <Send className="ml-2 h-4 w-4" />
                     </>
                   )}

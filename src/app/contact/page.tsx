@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
+import { BUTTON_LABELS, TOAST_MESSAGES } from "@/constants/form-validation";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -45,7 +46,7 @@ export default function ContactPage() {
     });
     
     setIsSubmitting(false);
-    toast.success("Thank you for your message!");
+    toast.success(TOAST_MESSAGES.SUCCESS.MESSAGE_SENT);
   };
 
   const isFormValid = formData.firstName.trim() !== "" && 
@@ -304,7 +305,7 @@ export default function ContactPage() {
                               "Sending..."
                             ) : (
                               <>
-                                Send Message
+                                {BUTTON_LABELS.SEND_MESSAGE}
                                 <Send className="ml-2 h-5 w-5" />
                               </>
                             )}

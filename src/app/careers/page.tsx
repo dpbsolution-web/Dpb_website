@@ -23,6 +23,11 @@ import {
   CheckCircle2,
   AlertCircle,
   TriangleAlert,
+  Sparkles,
+  Send,
+  Rocket,
+  Users,
+  ArrowRight,
 } from "lucide-react";
 import {
   Dialog,
@@ -89,6 +94,76 @@ function JobCardSkeleton() {
         <div className="h-10 w-full bg-gray-300 rounded-lg" />
       </CardFooter>
     </Card>
+  );
+}
+
+// Talent-network CTA shown when there are no live openings
+function NoOpenings({ applicationEmail }: { applicationEmail: string }) {
+  const perks = [
+    { icon: Rocket, title: "Fast-growing company", text: "Be part of our next phase of growth across India." },
+    { icon: Users, title: "People-first culture", text: "Collaborative, supportive and built on respect." },
+    { icon: CheckCircle2, title: "Every application reviewed", text: "We read each profile and keep it on file." },
+  ];
+
+  return (
+    <div className="max-w-5xl mx-auto">
+      {/* Hero CTA banner */}
+      <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 via-blue-700 to-indigo-700 px-6 sm:px-12 py-12 sm:py-16 text-center shadow-xl">
+        {/* decorative blobs */}
+        <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-indigo-400/20 blur-3xl" />
+
+        <div className="relative">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-white backdrop-blur-sm">
+            <Sparkles className="h-4 w-4" />
+            We&apos;re always hiring great people
+          </span>
+          <h3 className="mt-6 text-2xl sm:text-4xl font-bold text-white">
+            Join Our Talent Network
+          </h3>
+          <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-blue-100 leading-relaxed">
+            We don&apos;t have a specific role open right now, but we&apos;re always excited to meet
+            talented people. Share your resume and you&apos;ll be the first we reach out to when a
+            matching position opens up.
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button asChild size="lg" className="bg-white text-blue-700 hover:bg-blue-50 shadow-lg">
+              <a href={`mailto:${applicationEmail}?subject=Resume Submission - DPB Solution`}>
+                <Send className="mr-2 h-5 w-5" />
+                Send Your Resume
+              </a>
+            </Button>
+            <a
+              href={`mailto:${applicationEmail}`}
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-white/90 hover:text-white"
+            >
+              {applicationEmail}
+              <ArrowRight className="h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Perks */}
+      <div className="mt-8 grid gap-6 sm:grid-cols-3">
+        {perks.map((perk) => {
+          const Icon = perk.icon;
+          return (
+            <div
+              key={perk.title}
+              className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-lg"
+            >
+              <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+                <Icon className="h-6 w-6" />
+              </span>
+              <h4 className="mb-1.5 font-bold text-gray-900">{perk.title}</h4>
+              <p className="text-sm text-gray-600 leading-relaxed">{perk.text}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -200,8 +275,9 @@ export default function CareersPage() {
     });
   }, [jobOpenings, searchQuery, selectedDepartment, selectedLocation, selectedType]);
   
-  const hasOpenings = filteredJobs.length > 0;
-  
+  const acceptingOpenings = CAREERS_CONFIG.hasOpenings;
+  const hasOpenings = acceptingOpenings && filteredJobs.length > 0;
+
   // Get unique values for filters
   const departments = ["All", ...Array.from(new Set(jobOpenings.map(job => job.department)))];
   const locations = ["All", ...Array.from(new Set(jobOpenings.map(job => job.location)))];
@@ -371,13 +447,13 @@ export default function CareersPage() {
             placeholder="blur"
             blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
-          <div className="absolute inset-0bg-gradient-to-r from-blue-900/80 to-slate-900/80"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-blue-900/80 to-slate-900/80"></div>
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">Why Work at DPB Solution?</h2>
-            <p className="text-lg md:text-xl text-gray-100 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Why Work at DPB Solution?</h2>
+            <p className="text-lg text-gray-100 max-w-2xl mx-auto">
               We believe in creating an environment where talented people can do their best work
             </p>
           </div>
@@ -475,13 +551,18 @@ export default function CareersPage() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Open Positions</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-              Find your next opportunity and help us build amazing things
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              {acceptingOpenings ? "Open Positions" : "Work With Us"}
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              {acceptingOpenings
+                ? "Find your next opportunity and help us build amazing things"
+                : "We're not actively hiring right now — but we'd still love to hear from you"}
             </p>
           </div>
-          
+
           {/* Search and Filters */}
+          {acceptingOpenings && (
           <div className="mb-8 space-y-4">
             {/* Search Bar */}
             <div className="relative">
@@ -559,8 +640,11 @@ export default function CareersPage() {
               </div>
             </div>
           </div>
-          
-          {isLoadingJobs ? (
+          )}
+
+          {!acceptingOpenings ? (
+            <NoOpenings applicationEmail={applicationEmail} />
+          ) : isLoadingJobs ? (
             <div 
               className="grid lg:grid-cols-2 gap-8"
               role="status"
@@ -902,43 +986,7 @@ export default function CareersPage() {
               </motion.div>
             </AnimatePresence>
           ) : (
-            // Show "No Openings" message when hasOpenings is false
-            <div className="max-w-2xl mx-auto">
-              <Card className="text-center p-12 bg-linear-to-br from-blue-50 to-indigo-50 border-2 border-blue-200">
-                <CardContent className="space-y-6 pt-6">
-                  <div className="mx-auto w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center">
-                    <Briefcase className="h-10 w-10 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                      No Current Openings
-                    </h3>
-                    <p className="text-lg text-gray-600 mb-6">
-                      We don&apos;t have any open positions at the moment, but we&apos;re always looking for talented individuals to join our team.
-                    </p>
-                    <p className="text-gray-600 mb-8">
-                      We&apos;ll get back to you soon with great opportunities that match your skills and experience.
-                    </p>
-                  </div>
-                  <div className="space-y-4">
-                    <Button 
-                      asChild
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
-                    >
-                      <a href={`mailto:${applicationEmail}`}>
-                        Send Us Your Resume
-                      </a>
-                    </Button>
-                    <p className="text-sm text-gray-500">
-                      Or email us at{" "}
-                      <a href={`mailto:${applicationEmail}`} className="text-blue-600 hover:underline font-medium">
-                        {applicationEmail}
-                      </a>
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            <NoOpenings applicationEmail={applicationEmail} />
           )}
         </div>
       </motion.section>
@@ -947,8 +995,8 @@ export default function CareersPage() {
       <motion.section {...fadeInUp} className="py-24 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Our Hiring Process</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Hiring Process</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               A transparent and efficient process designed to find the right fit
             </p>
           </div>
@@ -971,7 +1019,7 @@ export default function CareersPage() {
       <motion.section {...fadeInUp} className="py-24 lg:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Frequently Asked Questions
             </h2>
             <p className="text-lg text-gray-600">

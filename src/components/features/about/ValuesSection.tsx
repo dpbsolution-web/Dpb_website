@@ -38,7 +38,7 @@ export function ValuesSection() {
               Values
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             The principles that guide everything we do
           </p>
         </motion.div>

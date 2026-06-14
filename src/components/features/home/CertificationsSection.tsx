@@ -2,37 +2,34 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { CheckCircle, Target, TrendingUp, Users } from "lucide-react";
+import { CheckCircle, Target, TrendingUp, Users, Clock, Headset } from "lucide-react";
 
 const certifications = [
   {
     icon: CheckCircle,
     title: "100+ Projects",
     description: "Successfully Delivered",
-    color: "text-green-600",
-    bgColor: "bg-green-50",
   },
   {
     icon: Target,
     title: "6+ Years",
     description: "Industry Experience",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
   },
   {
     icon: TrendingUp,
     title: "99.99% Uptime",
     description: "Network Reliability",
-    color: "text-purple-600",
-    bgColor: "bg-purple-50",
   },
   {
     icon: Users,
     title: "80+ Clients",
     description: "Trusted by Businesses",
-    color: "text-orange-600",
-    bgColor: "bg-orange-50",
   },
+];
+
+const trustIndicators = [
+  { icon: Clock, value: "100%", label: "On-Time Delivery" },
+  { icon: Headset, value: "24/7", label: "Support Available" },
 ];
 
 export function CertificationsSection() {
@@ -64,7 +61,7 @@ export function CertificationsSection() {
 
   return (
     <section className="py-16 lg:py-24 bg-linear-to-br from-gray-50 to-blue-50/30">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -84,7 +81,7 @@ export function CertificationsSection() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {certifications.map((cert, index) => {
             const Icon = cert.icon;
@@ -92,23 +89,17 @@ export function CertificationsSection() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                whileHover={{ 
-                  scale: 1.05,
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                className="group"
+                whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                className="group h-full"
               >
-                <div className={`${cert.bgColor} rounded-xl p-6 text-center h-full transition-all duration-300 hover:shadow-xl border border-gray-100`}>
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full ${cert.bgColor} mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`w-8 h-8 ${cert.color}`} />
+                <div className="flex h-full flex-col items-center rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-xl">
+                  <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-100 text-blue-600 transition-transform duration-300 group-hover:scale-110">
+                    <Icon className="h-8 w-8" />
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-2 text-lg">
+                  <h3 className="mb-1 text-lg font-bold text-gray-900">
                     {cert.title}
                   </h3>
-                  <p className="text-sm text-gray-600 leading-relaxed">
-                    {cert.description}
-                  </p>
+                  <p className="text-sm text-gray-600">{cert.description}</p>
                 </div>
               </motion.div>
             );
@@ -120,26 +111,22 @@ export function CertificationsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-12 bg-white rounded-2xl shadow-lg p-8"
+          className="mt-10 flex flex-col items-center justify-center gap-6 rounded-2xl bg-linear-to-r from-blue-600 to-indigo-600 px-8 py-8 text-white shadow-lg sm:flex-row sm:gap-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-blue-600 mb-2">100%</div>
-              <div className="text-gray-600">On-Time Delivery</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-gray-600">Support Available</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-purple-600 mb-2">6+</div>
-              <div className="text-gray-600">Years in Business</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-orange-600 mb-2">80+</div>
-              <div className="text-gray-600">Happy Clients</div>
-            </div>
-          </div>
+          {trustIndicators.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div key={index} className="flex items-center gap-4">
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+                  <Icon className="h-6 w-6" />
+                </span>
+                <div className="text-left">
+                  <div className="text-3xl font-bold leading-none">{item.value}</div>
+                  <div className="mt-1 text-sm text-blue-100">{item.label}</div>
+                </div>
+              </div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

@@ -4,7 +4,7 @@ import { Briefcase, Radio, Network } from "lucide-react";
 export const CAREERS_CONFIG = {
   applicationEmail: "info@dpbsolution.com",
   googleFormId: "", // Add your Google Form ID here or leave empty to use built-in form
-  hasOpenings: true, // Set to false to hide all positions and show "no openings" message
+  hasOpenings: false, // Set to false to hide all positions and show "no openings" message
 };
 
 // Job positions data

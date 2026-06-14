@@ -1,135 +1,141 @@
-import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Twitter, Facebook } from "lucide-react";
+import { Linkedin, Twitter, Facebook, Mail, Phone, MapPin } from "lucide-react";
 import { companyInfo } from "@/config/site";
+
+const linkGroups = [
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Careers", href: "/careers" },
+      { label: "Solutions", href: "/solutions" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Services",
+    links: [
+      { label: "OFC Solutions", href: "/services" },
+      { label: "Cloud Services", href: "/services" },
+      { label: "VoIP Communications", href: "/services" },
+      { label: "Cybersecurity", href: "/services" },
+      { label: "Managed IT", href: "/services" },
+    ],
+  },
+  {
+    title: "Solutions",
+    links: [
+      { label: "Healthcare", href: "/solutions" },
+      { label: "Education", href: "/solutions" },
+      { label: "Finance", href: "/solutions" },
+      { label: "Retail", href: "/solutions" },
+      { label: "Manufacturing", href: "/solutions" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy" },
+      { label: "Terms of Service", href: "/terms" },
+      { label: "Request a Quote", href: "/contact" },
+    ],
+  },
+];
+
+const socialLinks = [
+  { label: "LinkedIn", href: companyInfo.social.linkedin, Icon: Linkedin },
+  { label: "Twitter", href: companyInfo.social.twitter, Icon: Twitter },
+  { label: "Facebook", href: companyInfo.social.facebook, Icon: Facebook },
+];
 
 export function Footer() {
   return (
     <footer className="bg-slate-900 text-gray-300">
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-6">
-          {/* Company */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Company</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/about" className="text-sm hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="/careers" className="text-sm hover:text-white transition-colors">Careers</Link></li>
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Solutions</Link></li>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 lg:py-16">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-12">
+          {/* Brand column */}
+          <div className="col-span-2 md:col-span-3 lg:col-span-4">
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/images/logo.jpeg"
+                alt={`${companyInfo.name} Logo`}
+                width={40}
+                height={40}
+                className="rounded-lg object-contain"
+              />
+              <span className="text-lg font-bold text-white">{companyInfo.name}</span>
+            </div>
+            <p className="text-sm leading-relaxed text-gray-400 max-w-xs mb-6">
+              {companyInfo.description}
+            </p>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a
+                  href={`mailto:${companyInfo.contact.email}`}
+                  className="flex items-center gap-3 hover:text-white transition-colors"
+                >
+                  <Mail className="h-4 w-4 text-blue-400 shrink-0" />
+                  {companyInfo.contact.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${companyInfo.contact.phone.replace(/\s+/g, "")}`}
+                  className="flex items-center gap-3 hover:text-white transition-colors"
+                >
+                  <Phone className="h-4 w-4 text-blue-400 shrink-0" />
+                  {companyInfo.contact.phone}
+                </a>
+              </li>
+              <li className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-blue-400 shrink-0" />
+                {companyInfo.contact.address}
+              </li>
             </ul>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Services</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">OFC Solutions</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Cloud Services</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">VoIP Communications</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Cybersecurity</Link></li>
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">Managed IT</Link></li>
-            </ul>
-          </div>
-
-          {/* Solutions */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Solutions</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Education</Link></li>
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Finance</Link></li>
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Retail</Link></li>
-              <li><Link href="/solutions" className="text-sm hover:text-white transition-colors">Manufacturing</Link></li>
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Resources</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/services" className="text-sm hover:text-white transition-colors">All Services</Link></li>
-              <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Center</Link></li>
-              <li><Link href="/contact" className="text-sm hover:text-white transition-colors">Support</Link></li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Legal</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
-              <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms of Service</Link></li>
-            </ul>
-          </div>
-
-          {/* Get Started */}
-          <div>
-            <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">Get Started</h3>
-            <ul className="space-y-1.5">
-              <li><Link href="/contact" className="text-sm hover:text-white transition-colors">Request a Quote</Link></li>
-              <li><Link href="/" className="text-sm hover:text-white transition-colors">Free Consultation</Link></li>
-              <li><Link href="/about" className="text-sm hover:text-white transition-colors">Learn More</Link></li>
-            </ul>
-          </div>
+          {/* Link groups */}
+          {linkGroups.map((group) => (
+            <div key={group.title} className="lg:col-span-2">
+              <h3 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">
+                {group.title}
+              </h3>
+              <ul className="space-y-2.5">
+                {group.links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-4">
-          <div className="flex items-center space-x-2">
-            <Image 
-              src="/images/logo.jpeg" 
-              alt={`${companyInfo.name} Logo`}
-              width={32}
-              height={32}
-              className="rounded-lg object-contain"
-            />
-            <span className="text-sm text-white font-['Inter']">
-              © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {companyInfo.name}. All rights reserved.
-            </span>
-          </div>
-          
-          <div className="flex flex-col items-center md:items-end gap-3">
-            {/* Social Media Links */}
-            <div className="flex items-center space-x-4">
-              <Link 
-                href={companyInfo.social.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-blue-500 transition-colors"
-                aria-label="LinkedIn"
+        <div className="mt-12 flex flex-col md:flex-row justify-between items-center gap-4 border-t border-white/10 pt-6">
+          <span className="text-sm text-gray-400">
+            © <span suppressHydrationWarning>{new Date().getFullYear()}</span> {companyInfo.name}. All rights reserved.
+          </span>
+
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ label, href, Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-gray-400 hover:bg-blue-600 hover:text-white transition-colors"
+                aria-label={label}
               >
-                <Linkedin className="h-5 w-5" />
+                <Icon className="h-4 w-4" />
               </Link>
-              <Link 
-                href={companyInfo.social.twitter} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-blue-500 transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </Link>
-              <Link 
-                href={companyInfo.social.facebook} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-gray-400 hover:text-blue-500 transition-colors"
-                aria-label="Facebook"
-              >
-                <Facebook className="h-5 w-5" />
-              </Link>
-            </div>
-            
-            {/* Legal Links */}
-            <div className="flex flex-wrap items-center gap-3">
-              <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
-                Privacy Policy
-              </Link>
-              <span className="text-gray-600">|</span>
-              <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
-                Terms and Conditions
-              </Link>
-            </div>
+            ))}
           </div>
         </div>
       </div>

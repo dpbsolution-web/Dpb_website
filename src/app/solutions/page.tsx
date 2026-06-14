@@ -92,12 +92,12 @@ export default function SolutionsPage() {
               variants={fadeIn}
               className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
             >
-              Industry-Specific 
-              <span className="text-modern-gradient"> IT Solutions</span>
+              Industry-Specific{" "}
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">IT Solutions</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               variants={fadeIn}
-              className="text-xl text-gray-600 max-w-3xl mx-auto mb-8"
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8"
             >
               Tailored technology solutions designed to meet the unique challenges and requirements of your industry
             </motion.p>
@@ -268,8 +268,8 @@ export default function SolutionsPage() {
             {additionalSolutions.map((solution) => {
               const IconComponent = solution.icon;
               return (
-                <motion.div key={solution.id} variants={fadeIn}>
-                  <Card className="h-full hover:shadow-lg transition-shadow duration-300">
+                <motion.div key={solution.id} variants={fadeIn} className="h-full">
+                  <Card className="h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
                       <div className="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center mb-4">
                         <IconComponent className="w-6 h-6 text-violet-600" />
@@ -277,8 +277,8 @@ export default function SolutionsPage() {
                       <CardTitle className="text-xl">{solution.title}</CardTitle>
                       <CardDescription>{solution.description}</CardDescription>
                     </CardHeader>
-                    <CardContent>
-                      <div className="space-y-4">
+                    <CardContent className="flex flex-1 flex-col">
+                      <div className="space-y-4 flex-1">
                         <div>
                           <h4 className="font-semibold text-gray-900 mb-2">Features:</h4>
                           <ul className="space-y-1">
@@ -377,7 +377,7 @@ export default function SolutionsPage() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Proven Track Record</h3>
-                    <p className="text-gray-600">Successfully delivered 1200+ projects across various industries</p>
+                    <p className="text-gray-600">Successfully delivered 200+ projects across various industries</p>
                   </div>
                 </div>
                 

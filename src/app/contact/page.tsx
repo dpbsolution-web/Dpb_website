@@ -33,20 +33,43 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      company: "",
-      message: "",
-    });
-    
-    setIsSubmitting(false);
-    toast.success(TOAST_MESSAGES.SUCCESS.MESSAGE_SENT);
+
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          message: formData.message,
+          subject: `New Contact Inquiry from ${fullName}`,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast.success(TOAST_MESSAGES.SUCCESS.MESSAGE_SENT);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        toast.error(result.details || result.error || TOAST_MESSAGES.ERROR.SUBMISSION_FAILED);
+      }
+    } catch {
+      toast.error(TOAST_MESSAGES.ERROR.NETWORK_ERROR);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const isFormValid = formData.firstName.trim() !== "" && 
@@ -121,7 +144,7 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                         <Mail className="h-6 w-6 text-blue-600" />
                       </div>
                     </div>
@@ -134,7 +157,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                         <Phone className="h-6 w-6 text-blue-600" />
                       </div>
                     </div>
@@ -147,7 +170,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                         <MapPin className="h-6 w-6 text-blue-600" />
                       </div>
                     </div>
@@ -158,7 +181,7 @@ export default function ContactPage() {
                   </div>
                   <div className="flex items-start space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors duration-200">
                     <div className="shrink-0">
-                      <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                      <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                         <Clock className="h-6 w-6 text-blue-600" />
                       </div>
                     </div>
@@ -325,8 +348,8 @@ export default function ContactPage() {
       <section className="py-24 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Quick answers to common questions about our services
             </p>
           </div>

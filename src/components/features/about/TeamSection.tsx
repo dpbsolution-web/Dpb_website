@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Users } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users, UserRound } from "lucide-react";
+import { Card } from "@/components/ui/card";
 import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
 
 interface TeamMember {
@@ -20,19 +20,17 @@ interface TeamMember {
 // Skeleton component for team member cards
 function TeamMemberSkeleton() {
   return (
-    <Card className="text-center h-full animate-pulse">
-      <CardHeader>
-        <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4" />
+    <Card className="h-full gap-0 py-0 overflow-hidden animate-pulse">
+      <div className="h-28 bg-gray-200" />
+      <div className="px-6 pb-6 -mt-12">
+        <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 ring-4 ring-white" />
         <div className="h-5 w-3/4 bg-gray-300 rounded mx-auto mb-2" />
-        <div className="h-4 w-1/2 bg-gray-200 rounded mx-auto" />
-      </CardHeader>
-      <CardContent>
+        <div className="h-4 w-1/2 bg-gray-200 rounded mx-auto mb-4" />
         <div className="space-y-2">
           <div className="h-3 w-full bg-gray-200 rounded" />
           <div className="h-3 w-5/6 bg-gray-200 rounded mx-auto" />
-          <div className="h-3 w-4/6 bg-gray-200 rounded mx-auto" />
         </div>
-      </CardContent>
+      </div>
     </Card>
   );
 }
@@ -58,24 +56,24 @@ export function TeamSection() {
         setLoading(false);
       }
     };
-    
+
     fetchTeamMembers();
   }, []);
 
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Leadership Team</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <motion.div {...fadeInUp} className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Leadership Team</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             The visionaries and experts driving our mission forward
           </p>
         </motion.div>
-        
+
         {loading ? (
-          <div 
+          <div
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            role="status" 
+            role="status"
             aria-label="Loading team members"
           >
             {[1, 2, 3, 4].map((i) => (
@@ -83,44 +81,51 @@ export function TeamSection() {
             ))}
           </div>
         ) : teamMembers.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No team members to display.</p>
+          <div className="mx-auto max-w-md rounded-2xl border border-dashed border-gray-300 bg-white px-8 py-14 text-center">
+            <span className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-600">
+              <Users className="h-7 w-7" />
+            </span>
+            <p className="text-lg font-semibold text-gray-900">Team profiles coming soon</p>
+            <p className="mt-1 text-sm text-gray-500">
+              We&apos;re putting the finishing touches on our leadership profiles. Check back shortly.
+            </p>
           </div>
         ) : (
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="initial"
             whileInView="whileInView"
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+            viewport={{ once: true }}
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
           >
             {teamMembers.map((member, index) => (
-              <motion.div key={member.id || index} variants={scaleIn}>
-                <Card className="text-center h-full">
-                  <CardHeader>
-                    <div className="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden relative">
+              <motion.div key={member.id || index} variants={scaleIn} whileHover={{ y: -6 }}>
+                <Card className="h-full gap-0 py-0 overflow-hidden text-center shadow-lg hover:shadow-xl transition-shadow">
+                  {/* Cover band */}
+                  <div className="h-24 bg-linear-to-br from-blue-600 to-indigo-600" />
+                  <div className="px-6 pb-6 -mt-12">
+                    <div className="w-24 h-24 bg-blue-100 rounded-full mx-auto mb-4 flex items-center justify-center overflow-hidden relative ring-4 ring-white shadow-md">
                       {member.image && member.image !== '/images/team/placeholder.jpg' ? (
-                        <Image 
-                          src={member.image} 
+                        <Image
+                          src={member.image}
                           alt={member.name}
                           fill
                           className="object-cover"
                         />
                       ) : (
-                        <Users className="h-12 w-12 text-blue-600" />
+                        <UserRound className="h-12 w-12 text-blue-600" />
                       )}
                     </div>
-                    <CardTitle className="text-lg font-semibold text-gray-900">
+                    <h3 className="text-lg font-semibold text-gray-900">
                       {member.name}
-                    </CardTitle>
-                    <CardDescription className="text-blue-600 font-medium">
+                    </h3>
+                    <span className="mt-2 inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
                       {member.role}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 text-sm">
+                    </span>
+                    <p className="mt-4 text-gray-600 text-sm leading-relaxed">
                       {member.description}
                     </p>
-                  </CardContent>
+                  </div>
                 </Card>
               </motion.div>
             ))}

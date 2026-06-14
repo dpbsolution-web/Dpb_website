@@ -35,14 +35,16 @@ export function TestimonialCard({
       <Card className="h-full bg-white border-2 border-gray-200 shadow-lg hover:shadow-2xl hover:border-blue-200 transition-all duration-300">
         <CardContent className="p-6 flex flex-col h-full">
           {/* Quote Icon */}
-          <motion.div 
+          <motion.div
             className="mb-4"
             initial={{ scale: 0, rotate: -180 }}
             whileInView={{ scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            <Quote className="h-8 w-8 text-blue-600/30" />
+            <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+              <Quote className="h-5 w-5 fill-current" />
+            </span>
           </motion.div>
           
           {/* Content */}

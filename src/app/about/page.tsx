@@ -4,6 +4,7 @@ import {
   StatsSection,
   MissionVisionSection,
   CompanyStorySection,
+  BusinessHeadSection,
   TeamSection,
   ValuesSection
 } from "@/components/features/about";
@@ -29,6 +30,7 @@ export default function AboutPage() {
       <StatsSection />
       <MissionVisionSection />
       <CompanyStorySection />
+      <BusinessHeadSection />
       <TeamSection />
       <ValuesSection />
     </div>

@@ -69,7 +69,7 @@ export function TestimonialsSection() {
               onClick={handlePrevious}
               variant="outline"
               size="icon"
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 h-12 w-12 rounded-full bg-white hover:bg-gray-50 border-2 border-gray-200 text-gray-700 z-10 hidden md:flex items-center justify-center shadow-lg"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 lg:-translate-x-16 h-12 w-12 rounded-full bg-white hover:bg-blue-600 hover:text-white border-2 border-gray-200 hover:border-blue-600 text-gray-700 z-10 hidden md:flex items-center justify-center shadow-lg transition-colors"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="h-6 w-6" />
@@ -101,7 +101,7 @@ export function TestimonialsSection() {
               onClick={handleNext}
               variant="outline"
               size="icon"
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 h-12 w-12 rounded-full bg-white hover:bg-gray-50 border-2 border-gray-200 text-gray-700 z-10 hidden md:flex items-center justify-center shadow-lg"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 lg:translate-x-16 h-12 w-12 rounded-full bg-white hover:bg-blue-600 hover:text-white border-2 border-gray-200 hover:border-blue-600 text-gray-700 z-10 hidden md:flex items-center justify-center shadow-lg transition-colors"
               aria-label="Next testimonials"
             >
               <ChevronRight className="h-6 w-6" />
@@ -141,10 +141,10 @@ export function TestimonialsSection() {
                   onClick={() => {
                     setCurrentIndex(index);
                   }}
-                  className={`h-2 rounded-full ${
-                    index === currentIndex 
-                      ? "w-8 bg-blue-600" 
-                      : "w-2 bg-gray-300"
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? "w-8 bg-blue-600"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to page ${index + 1}`}
                 />

@@ -1,64 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Users, UserRound } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
-
-interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  description: string;
-  image: string;
-  order: number;
-  active?: boolean;
-}
-
-// Skeleton component for team member cards
-function TeamMemberSkeleton() {
-  return (
-    <Card className="h-full gap-0 py-0 overflow-hidden animate-pulse">
-      <div className="h-28 bg-gray-200" />
-      <div className="px-6 pb-6 -mt-12">
-        <div className="w-24 h-24 bg-gray-300 rounded-full mx-auto mb-4 ring-4 ring-white" />
-        <div className="h-5 w-3/4 bg-gray-300 rounded mx-auto mb-2" />
-        <div className="h-4 w-1/2 bg-gray-200 rounded mx-auto mb-4" />
-        <div className="space-y-2">
-          <div className="h-3 w-full bg-gray-200 rounded" />
-          <div className="h-3 w-5/6 bg-gray-200 rounded mx-auto" />
-        </div>
-      </div>
-    </Card>
-  );
-}
+import { TEAM_MEMBERS } from "@/constants/team";
 
 export function TeamSection() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchTeamMembers = async () => {
-      try {
-        const response = await fetch('/api/admin/team', {
-          cache: 'no-store'
-        });
-        const data = await response.json();
-        // Filter only active team members
-        const activeMembers: TeamMember[] = Array.isArray(data) ? data.filter((member: TeamMember) => member.active !== false) : [];
-        setTeamMembers(activeMembers);
-      } catch (error) {
-        console.error('Failed to fetch team members:', error);
-        setTeamMembers([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchTeamMembers();
-  }, []);
+  // Static team data sourced from constants (no backend)
+  const teamMembers = TEAM_MEMBERS.filter((member) => member.active !== false);
 
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
@@ -70,17 +21,7 @@ export function TeamSection() {
           </p>
         </motion.div>
 
-        {loading ? (
-          <div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            role="status"
-            aria-label="Loading team members"
-          >
-            {[1, 2, 3, 4].map((i) => (
-              <TeamMemberSkeleton key={i} />
-            ))}
-          </div>
-        ) : teamMembers.length === 0 ? (
+        {teamMembers.length === 0 ? (
           <div className="mx-auto max-w-md rounded-2xl border border-dashed border-gray-300 bg-white px-8 py-14 text-center">
             <span className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-blue-600">
               <Users className="h-7 w-7" />

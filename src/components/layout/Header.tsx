@@ -101,6 +101,7 @@ export function Header() {
             ))}
           </nav>
 
+
           {/* Mobile Menu Button */}
           <div className="flex items-center space-x-2 md:hidden">
             <Button
@@ -156,6 +157,7 @@ export function Header() {
                     {item.name}
                   </Link>
                 ))}
+               
               </nav>
             </motion.div>
           )}

@@ -6,43 +6,8 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/common/ServiceCard";
 import { services } from "@/config/site";
-import { useState, useEffect } from "react";
-
-// Skeleton component for service cards
-function ServiceCardSkeleton() {
-  return (
-    <div className="h-full bg-white border-2 border-gray-200 rounded-xl p-6 animate-pulse">
-      <div className="flex flex-col space-y-3 mb-4">
-        <div className="h-12 w-12 bg-gray-300 rounded-xl" />
-        <div className="h-7 w-3/4 bg-gray-300 rounded" />
-      </div>
-      <div className="space-y-2 mb-6">
-        <div className="h-4 w-full bg-gray-200 rounded" />
-        <div className="h-4 w-5/6 bg-gray-200 rounded" />
-      </div>
-      <div className="h-4 w-32 bg-gray-300 rounded mb-3" />
-      <div className="space-y-2 mb-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="flex items-center gap-2">
-            <div className="h-4 w-4 bg-gray-300 rounded-full" />
-            <div className="h-3 w-3/4 bg-gray-200 rounded" />
-          </div>
-        ))}
-      </div>
-      <div className="h-10 w-full bg-gray-300 rounded-lg mt-4" />
-    </div>
-  );
-}
 
 export function ServicesSection() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 700);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <section className="py-24 lg:py-32 bg-linear-to-b from-gray-50 to-white">
@@ -77,65 +42,38 @@ export function ServicesSection() {
           </motion.p>
         </motion.div>
 
-        {isLoading ? (
-          <div 
-            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto"
-            role="status"
-            aria-label="Loading services"
-          >
-            {[1, 2, 3, 4].map((i) => (
-              <ServiceCardSkeleton key={i} />
-            ))}
-          </div>
-        ) : (
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={{
-              hidden: { opacity: 0 },
-              visible: {
-                opacity: 1,
-                transition: {
-                  staggerChildren: 0.15,
-                  delayChildren: 0.2
-                }
-              }
-            }}
-            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto"
-          >
-            {services.slice(0, 6).map((service) => (
-              <motion.div 
-                key={service.id}
-                variants={{
-                  hidden: { opacity: 0, y: 40, scale: 0.95 },
-                  visible: { 
-                    opacity: 1, 
-                    y: 0, 
-                    scale: 1,
-                    transition: {
-                      duration: 0.5,
-                      ease: "easeOut"
-                    }
-                  }
-                }}
-              >
-                <ServiceCard
-                  title={service.title}
-                  description={service.shortDescription}
-                  icon={service.icon}
-                  features={service.features}
-                  popular={service.popular}
-                  onLearnMore={() => {
-                    if (typeof window !== 'undefined') {
-                      window.location.href = '/services';
-                    }
-                  }}
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.15, delayChildren: 0.2 }
+            }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-6xl mx-auto"
+        >
+          {services.slice(0, 6).map((service) => (
+            <motion.div
+              key={service.id}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } }
+              }}
+            >
+              <ServiceCard
+                title={service.title}
+                description={service.shortDescription}
+                icon={service.icon}
+                features={service.features}
+                popular={service.popular}
+                href="/services"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -144,9 +82,9 @@ export function ServicesSection() {
           transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
           className="text-center mt-12"
         >
-          <Button size="lg" variant="outline" asChild>
+          <Button size="lg" variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-colors" asChild>
             <Link href="/services">
-              View All Services
+              Explore Full Service Details
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

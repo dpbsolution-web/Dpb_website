@@ -61,42 +61,6 @@ import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
 
-// Skeleton component for job cards
-function JobCardSkeleton() {
-  return (
-    <Card className="h-full animate-pulse">
-      <CardHeader className="pb-3">
-        <div className="flex items-center justify-between mb-4">
-          <div className="bg-gray-200 p-3 rounded-lg h-12 w-12" />
-          <div className="bg-gray-200 h-6 w-20 rounded" />
-        </div>
-        <div className="h-6 w-3/4 bg-gray-300 rounded mb-2" />
-        <div className="h-4 w-1/2 bg-gray-200 rounded" />
-      </CardHeader>
-      
-      <CardContent>
-        <div className="grid grid-cols-2 gap-4 mb-4">
-          <div className="h-4 bg-gray-200 rounded" />
-          <div className="h-4 bg-gray-200 rounded" />
-        </div>
-        
-        <div>
-          <div className="h-4 w-32 bg-gray-300 rounded mb-2" />
-          <div className="space-y-2">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-3 bg-gray-200 rounded" />
-            ))}
-          </div>
-        </div>
-      </CardContent>
-      
-      <CardFooter>
-        <div className="h-10 w-full bg-gray-300 rounded-lg" />
-      </CardFooter>
-    </Card>
-  );
-}
-
 // Talent-network CTA shown when there are no live openings
 function NoOpenings({ applicationEmail }: { applicationEmail: string }) {
   const perks = [
@@ -200,7 +164,6 @@ export default function CareersPage() {
   const [selectedPosition, setSelectedPosition] = useState<string | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isConfirmCancelOpen, setIsConfirmCancelOpen] = useState(false);
-  const [isLoadingJobs, setIsLoadingJobs] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [selectedLocation, setSelectedLocation] = useState("All");
@@ -241,14 +204,6 @@ export default function CareersPage() {
       toast.error(ERROR_MESSAGES.FILE.REJECTED);
     },
   });
-  
-  // Simulate loading time for static data
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoadingJobs(false);
-    }, 700);
-    return () => clearTimeout(timer);
-  }, []);
   
   // Back to top button visibility
   useEffect(() => {
@@ -463,7 +418,7 @@ export default function CareersPage() {
       {/* Culture Section */}
       <motion.section {...fadeInUp} className="py-24 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -644,16 +599,6 @@ export default function CareersPage() {
 
           {!acceptingOpenings ? (
             <NoOpenings applicationEmail={applicationEmail} />
-          ) : isLoadingJobs ? (
-            <div 
-              className="grid lg:grid-cols-2 gap-8"
-              role="status"
-              aria-label="Loading job positions"
-            >
-              {[1, 2, 3, 4].map((i) => (
-                <JobCardSkeleton key={i} />
-              ))}
-            </div>
           ) : hasOpenings ? (
             <AnimatePresence mode="wait">
               <motion.div
@@ -661,7 +606,7 @@ export default function CareersPage() {
                 variants={staggerContainer}
                 initial="initial"
                 animate="whileInView"
-                className="grid lg:grid-cols-2 gap-8"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8"
               >
                 {filteredJobs.map((position, index) => (
                   <motion.div key={index} variants={scaleIn} layout>
@@ -705,7 +650,7 @@ export default function CareersPage() {
                   </CardHeader>
                 
                 <CardContent>
-                  <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 text-sm">
                     <div className="flex items-center text-gray-600">
                       <MapPin className="h-4 w-4 mr-2" />
                       {position.location}
@@ -742,7 +687,7 @@ export default function CareersPage() {
                         Apply Now
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="sm:max-w-[550px] bg-white border-2 border-blue-200 max-h-[90vh] overflow-y-auto" showCloseButton={false}>
+                    <DialogContent className="w-[calc(100vw-2rem)] sm:max-w-[550px] bg-white border-2 border-blue-200 max-h-[90vh] overflow-y-auto" showCloseButton={false}>
                       <DialogHeader className="pb-4 border-b sticky top-0 bg-white z-10 pr-10">
                         <div className="flex flex-row items-center gap-3">
                           <Image

@@ -15,9 +15,9 @@ export function TestimonialsSection() {
   const autoScrollInterval = 5000;
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  const handlePrevious = () => {
+  const handlePrevious = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  };
+  }, [totalPages]);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
@@ -37,6 +37,17 @@ export function TestimonialsSection() {
       }
     };
   }, [currentIndex, handleNext, isPaused, showNavigation]);
+
+  // Keyboard arrow navigation
+  useEffect(() => {
+    if (!showNavigation) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") handlePrevious();
+      if (e.key === "ArrowRight") handleNext();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [handleNext, handlePrevious, showNavigation]);
 
   const visibleTestimonials = testimonials.slice(
     currentIndex * itemsPerPage,
@@ -58,10 +69,14 @@ export function TestimonialsSection() {
           </p>
         </div>
 
-        <div 
+        <div
           className="relative max-w-7xl mx-auto"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          role="region"
+          aria-label="Client testimonials"
+          aria-live="polite"
+          aria-atomic="true"
         >
           {/* Left Arrow */}
           {showNavigation && (
@@ -134,19 +149,19 @@ export function TestimonialsSection() {
 
           {/* Pagination Dots */}
           {showNavigation && (
-            <div className="flex justify-center items-center gap-2 mt-8">
+            <div className="flex justify-center items-center gap-3 mt-8" role="tablist" aria-label="Testimonial pages">
               {Array.from({ length: totalPages }).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => {
-                    setCurrentIndex(index);
-                  }}
-                  className={`h-2 rounded-full transition-all duration-300 ${
+                  role="tab"
+                  onClick={() => setCurrentIndex(index)}
+                  className={`rounded-full transition-all duration-300 focus-visible:outline-2 focus-visible:outline-blue-600 focus-visible:outline-offset-2 ${
                     index === currentIndex
-                      ? "w-8 bg-blue-600"
-                      : "w-2 bg-gray-300 hover:bg-gray-400"
+                      ? "w-8 h-3 bg-blue-600"
+                      : "w-3 h-3 bg-gray-300 hover:bg-blue-400"
                   }`}
-                  aria-label={`Go to page ${index + 1}`}
+                  aria-label={`Go to testimonial page ${index + 1}`}
+                  aria-selected={index === currentIndex}
                 />
               ))}
             </div>

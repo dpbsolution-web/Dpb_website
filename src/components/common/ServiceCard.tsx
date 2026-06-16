@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { LucideIcon, Check } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -14,6 +15,7 @@ interface ServiceCardProps {
   features: string[];
   popular?: boolean;
   image?: string;
+  href?: string;
   onLearnMore?: () => void;
 }
 
@@ -24,6 +26,7 @@ export function ServiceCard({
   features,
   popular = false,
   image,
+  href,
   onLearnMore
 }: ServiceCardProps) {
 
@@ -150,24 +153,24 @@ export function ServiceCard({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <Button 
-                className={`w-full font-semibold transition-all duration-300 py-6 text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 group/button ${
-                  popular 
-                    ? 'bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white' 
+              <Button
+                className={`w-full font-semibold transition-all duration-300 py-6 text-base rounded-xl shadow-md hover:shadow-xl hover:-translate-y-0.5 ${
+                  popular
+                    ? 'bg-linear-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white'
                     : 'bg-white border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white'
                 }`}
-                onClick={onLearnMore}
+                onClick={!href ? onLearnMore : undefined}
+                asChild={!!href}
               >
-                <span className="flex items-center justify-center gap-2">
-                  Learn More
-                  <motion.span
-                    initial={{ x: 0 }}
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    →
-                  </motion.span>
-                </span>
+                {href ? (
+                  <Link href={href}>
+                    Learn More <span aria-hidden="true">→</span>
+                  </Link>
+                ) : (
+                  <span className="flex items-center justify-center gap-2">
+                    Learn More <span aria-hidden="true">→</span>
+                  </span>
+                )}
               </Button>
             </motion.div>
           </div>

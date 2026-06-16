@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Zap, Mail } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { companyInfo } from "@/config/site";
 import CountUp from "react-countup";
@@ -39,24 +39,8 @@ export function HeroSection() {
 
   return (
     <section className="relative overflow-hidden min-h-[85vh] lg:min-h-[90vh] flex items-center">
-      {/* Animated Gradient Background */}
-      <motion.div 
-        className="absolute inset-0 z-0"
-        animate={{
-          background: [
-            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-            'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-            'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
-            'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)',
-            'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          ],
-        }}
-        transition={{
-          duration: 20,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
+      {/* Professional deep-blue gradient base */}
+      <div className="absolute inset-0 z-0 bg-linear-to-br from-blue-950 via-blue-900 to-indigo-900" />
       
       {/* Floating Elements */}
       {[...Array(5)].map((_, i) => (

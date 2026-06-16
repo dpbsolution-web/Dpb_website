@@ -2,14 +2,7 @@
 
 import { motion } from "framer-motion";
 import { BookOpen, Calendar, Rocket } from "lucide-react";
-import { fadeInUp } from "@/lib/animations";
-
-const fadeInRight = {
-  initial: { opacity: 0, x: 60 },
-  whileInView: { opacity: 1, x: 0 },
-  viewport: { once: true, margin: "-100px" },
-  transition: { duration: 0.6 },
-};
+import { fadeInUp, slideInRight } from "@/lib/animations";
 
 export function CompanyStorySection() {
   const milestones = [
@@ -40,7 +33,7 @@ export function CompanyStorySection() {
           </motion.div>
 
           {/* Visual panel */}
-          <motion.div {...fadeInRight} className="relative">
+          <motion.div {...slideInRight} className="relative">
             <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 to-indigo-700 p-10 lg:p-12 shadow-xl">
               {/* decorative blobs */}
               <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/10 blur-2xl" />

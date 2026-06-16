@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     url: "https://dpbsolution.com",
     siteName: "DPB Solution",
     title: "DPB Solution - Telecommunications & IT Solutions",
-    description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation with cutting-edge technology and unparalleled service since 2009.",
+    description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation with cutting-edge technology and unparalleled service since 2019.",
     images: [
       {
         url: "/images/logo.jpeg",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "DPB Solution - Telecommunications & IT Solutions",
-    description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation since 2009.",
+    description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation since 2019.",
     creator: "@dpbsolution",
     images: ["/images/logo.jpeg"],
   },

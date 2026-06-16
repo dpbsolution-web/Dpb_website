@@ -128,11 +128,51 @@ export default function ContactPage() {
       </div>
       </section>
 
+      {/* How it works — 3 steps */}
+      <section className="py-14 bg-gray-50 border-b border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center text-sm font-semibold uppercase tracking-widest text-blue-600 mb-10"
+          >
+            What happens next?
+          </motion.p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+            {[
+              { step: "01", icon: Send, title: "Submit your query", desc: "Fill in the form with your requirements and hit send." },
+              { step: "02", icon: Clock, title: "We respond in 24 h", desc: "Our team reviews your message and reaches out promptly." },
+              { step: "03", icon: Phone, title: "Get a tailored solution", desc: "We understand your needs and propose the right service." },
+            ].map(({ step, icon: Icon, title, desc }, i) => (
+              <motion.div
+                key={step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="flex flex-col items-center gap-3"
+              >
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white shadow-lg shadow-blue-200">
+                  <Icon className="h-7 w-7" />
+                  <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-700">
+                    {step}
+                  </span>
+                </div>
+                <p className="text-base font-semibold text-gray-900">{title}</p>
+                <p className="text-sm text-gray-500 leading-relaxed max-w-[200px]">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Form Section */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
               {/* Contact Information */}
               <div className="space-y-8">
                 <div>

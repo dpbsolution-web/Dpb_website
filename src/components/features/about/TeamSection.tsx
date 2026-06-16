@@ -37,7 +37,7 @@ export function TeamSection() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch"
           >
             {teamMembers.map((member, index) => (
               <motion.div key={member.id || index} variants={scaleIn} whileHover={{ y: -6 }}>

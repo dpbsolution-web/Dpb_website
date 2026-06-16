@@ -138,7 +138,7 @@ export default function SolutionsPage() {
           </motion.div>
 
           <Tabs value={selectedIndustry} onValueChange={setSelectedIndustry} className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12 gap-2 bg-transparent p-0">
+            <TabsList className="grid w-full grid-cols-1 sm:grid-cols-3 mb-12 gap-2 bg-transparent p-0">
               {solutions.map((solution) => {
                 const IconComponent = industryIcons[solution.id];
                 return (
@@ -162,7 +162,7 @@ export default function SolutionsPage() {
                     initial="initial"
                     animate="animate"
                     variants={stagger}
-                    className="grid lg:grid-cols-2 gap-12 items-center"
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                   >
                     {/* Solution Details */}
                     <motion.div variants={fadeIn}>
@@ -263,7 +263,7 @@ export default function SolutionsPage() {
             whileInView="animate"
             viewport={{ once: true }}
             variants={stagger}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {additionalSolutions.map((solution) => {
               const IconComponent = solution.icon;
@@ -337,7 +337,7 @@ export default function SolutionsPage() {
               </p>
             </motion.div>
 
-            <motion.div variants={stagger} className="grid md:grid-cols-2 gap-8">
+            <motion.div variants={stagger} className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <motion.div variants={fadeIn} className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center shrink-0 mt-1">

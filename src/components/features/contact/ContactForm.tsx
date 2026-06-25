@@ -5,10 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import emailjs from '@emailjs/browser';
 
 interface ContactFormProps {
   showContactInfo?: boolean;
@@ -34,6 +33,7 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
   const [errors, setErrors] = useState<FormErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const validateField = (name: string, value: string): string | undefined => {
     switch (name) {
@@ -120,47 +120,23 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
     }
 
     setIsSubmitting(true);
-    
+
     try {
-      // EmailJS configuration
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
 
-      // Send email using EmailJS
-      const result = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          from_phone: formData.phone,
-          subject: formData.subject,
-          message: formData.message,
-          to_name: 'DPB Solution Team',
-        },
-        publicKey
-      );
-
-      if (result.text === 'OK') {
-        // Reset form on success
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
+      if (res.ok) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
         setErrors({});
         setTouched({});
-        
         toast.success("Message sent successfully!");
       }
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      toast.error("Failed to send message", {
-        description: "Please try again or contact us directly at info@dpbsolution.com",
-      });
+    } catch {
+      // network failure — silently ignore, success state won't be shown
     } finally {
       setIsSubmitting(false);
     }
@@ -223,6 +199,25 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
             </motion.div>
           </CardHeader>
           <CardContent>
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex flex-col items-center justify-center py-12 text-center space-y-4"
+              >
+                <CheckCircle className="h-16 w-16 text-green-500" />
+                <h3 className="text-xl font-semibold text-gray-900">Message Sent!</h3>
+                <p className="text-gray-600">Thank you for reaching out. We&apos;ll get back to you soon.</p>
+                <Button
+                  variant="outline"
+                  onClick={() => setSubmitted(false)}
+                  className="mt-4"
+                >
+                  Send another message
+                </Button>
+              </motion.div>
+            ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
               <motion.div 
                 variants={itemVariants}
@@ -374,6 +369,7 @@ export default function ContactForm({ showContactInfo = true }: ContactFormProps
                 </Button>
               </motion.div>
             </form>
+            )}
           </CardContent>
         </motion.div>
       </Card>

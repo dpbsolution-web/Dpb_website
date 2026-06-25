@@ -306,27 +306,39 @@ export const jobOpenings = [
 export const faqs = [
   {
     id: 1,
-    question: "What types of businesses do you serve?",
+    question: "How long does a typical telecom project take?",
     answer:
-      "We serve businesses of all sizes, from small startups to large enterprises, across various industries including healthcare, finance, education, and manufacturing.",
+      "Project timelines depend on scope and complexity. Smaller connectivity or communication setups may take a few weeks, while large-scale OFC network or enterprise deployments can require several months. We provide a detailed timeline after our initial assessment and consultation.",
   },
   {
     id: 2,
-    question: "Do you offer 24/7 support?",
+    question: "What telecom and IT services do you offer?",
     answer:
-      "Yes, we provide 24/7 technical support for all our managed services clients, ensuring your business operations run smoothly around the clock.",
+      "We deliver comprehensive telecommunications and IT solutions including OFC deployment and maintenance, ISP and Microwave deployment, manpower outsourcing, network infrastructure design, and 24/7 network monitoring — all tailored to your business requirements.",
   },
   {
     id: 3,
-    question: "How quickly can you implement new services?",
+    question: "Do you provide ongoing support and maintenance?",
     answer:
-      "Implementation times vary by service complexity. Simple services like VoIP can be deployed within 1-2 weeks, while complex infrastructure projects may take 4-8 weeks.",
+      "Yes, we offer continuous support and maintenance to ensure your network remains reliable and secure. Our services include proactive monitoring, troubleshooting, regular upgrades, and dedicated technical assistance with a 99.99% uptime SLA.",
   },
   {
     id: 4,
-    question: "Do you provide training for new systems?",
+    question: "Which industries and clients do you serve?",
     answer:
-      "Absolutely! We include comprehensive training as part of all our service implementations, ensuring your team can effectively use new systems.",
+      "We serve a wide range of clients including major telecom operators (VIL, Airtel, Jio), government bodies, IT companies, manufacturing units, and corporate enterprises — delivering robust communication and connectivity solutions across Bihar and multiple cities in India.",
+  },
+  {
+    id: 5,
+    question: "Are your engineers certified and trained?",
+    answer:
+      "Absolutely. All our engineers undergo regular skill development sessions, safety training, and farm tower training. We maintain full government compliance and provide riggers and ISP engineers with the certifications required for high-quality, safe project execution.",
+  },
+  {
+    id: 6,
+    question: "How do I get a quote for my project?",
+    answer:
+      "Simply fill out the contact form on this page or call us directly at +91 9973789207. Our team will get back to you within 24 hours to understand your requirements and provide a customised proposal.",
   },
 ];
 

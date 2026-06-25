@@ -5,6 +5,27 @@ export const fadeInUp = {
   transition: { duration: 0.6 }
 };
 
+// Page-load (above-the-fold) variants — use animate, not whileInView
+export const heroFadeIn = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
+
+export const heroFadeInUp = {
+  initial: { opacity: 0, y: 60 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, ease: "easeOut" }
+};
+
+export const heroStagger = {
+  animate: {
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
 export const fadeIn = {
   initial: { opacity: 0 },
   whileInView: { opacity: 1 },

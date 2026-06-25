@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ClipboardList, PencilRuler, Rocket, LifeBuoy } from "lucide-react";
-import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
+import { scaleIn, staggerContainer } from "@/lib/animations";
+import { SectionHeading } from "@/components/common/SectionHeading";
 
 const steps = [
   {
@@ -35,14 +36,10 @@ export function ImplementationProcessSection() {
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Implementation Process
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A proven methodology for successful telecom infrastructure deployment
-          </p>
-        </motion.div>
+        <SectionHeading
+          title="Our Implementation Process"
+          subtitle="A proven methodology for successful telecom infrastructure deployment"
+        />
 
         <motion.div
           variants={staggerContainer}

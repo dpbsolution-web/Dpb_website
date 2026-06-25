@@ -1,17 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/animations";
+import { scaleIn } from "@/lib/animations";
 
 export function AboutHeroSection() {
   return (
     <motion.section
-      {...fadeInUp}
-      className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden"
+      {...scaleIn}
+      className="bg-linear-to-br from-slate-50 via-blue-50 to-indigo-100 py-24 lg:py-32 relative overflow-hidden"
     >
-      {/* Floating accent blobs */}
-      <div className="absolute -top-24 -left-24 w-80 h-80 bg-blue-300/30 rounded-full blur-3xl animate-blob" />
-      <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-purple-300/30 rounded-full blur-3xl animate-blob animation-delay-2000" />
+      {/* Shimmer sweep — one-shot diagonal light stripe */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="animate-shimmer absolute -top-1/2 -left-1/4 w-1/2 h-[200%] bg-linear-to-r from-transparent via-white/30 to-transparent rotate-12" />
+      </div>
 
       {/* Background dot pattern */}
       <div className="absolute inset-0 opacity-[0.07]">

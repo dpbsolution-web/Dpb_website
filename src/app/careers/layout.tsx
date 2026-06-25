@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Careers at DPB Solution',
     description: 'Join our team of telecommunications and IT professionals',
-    images: ['/images/logo.jpeg'],
     url: 'https://dpbsolution.com/careers',
     type: 'website',
   },

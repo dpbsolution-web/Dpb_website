@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Target, Award, Users } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { SectionHeading } from "@/components/common/SectionHeading";
 
 export function ValuesSection() {
   const values = [
@@ -26,22 +27,10 @@ export function ValuesSection() {
   return (
     <section className="py-24 lg:py-32 bg-linear-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Core{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-700">
-              Values
-            </span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            The principles that guide everything we do
-          </p>
-        </motion.div>
+        <SectionHeading
+          title={<>Our Core{" "}<span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-700">Values</span></>}
+          subtitle="The principles that guide everything we do"
+        />
         
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
           {values.map((value, index) => {

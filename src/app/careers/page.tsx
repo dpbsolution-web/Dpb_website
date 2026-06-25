@@ -56,7 +56,7 @@ import {
   TOAST_MESSAGES,
   EMAIL_PATTERN,
 } from "@/constants/form-validation";
-import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
+import { fadeInUp, scaleIn, slideInLeft, staggerContainer } from "@/lib/animations";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import { useDropzone } from "react-dropzone";
@@ -118,7 +118,7 @@ function NoOpenings({ applicationEmail }: { applicationEmail: string }) {
               key={perk.title}
               className="rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-sm transition-shadow duration-300 hover:shadow-lg"
             >
-              <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
+              <span className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-violet-100 text-violet-600">
                 <Icon className="h-6 w-6" />
               </span>
               <h4 className="mb-1.5 font-bold text-gray-900">{perk.title}</h4>
@@ -341,18 +341,18 @@ export default function CareersPage() {
     <>
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
-        <motion.section {...fadeInUp} className="bg-linear-to-br from-blue-50 via-indigo-50 to-purple-50 py-24 lg:py-32 relative overflow-hidden">
+        <motion.section {...slideInLeft} className="bg-linear-to-br from-violet-50 via-purple-50 to-blue-50 py-24 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
-            backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(59 130 246) 1px, transparent 0)',
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(139 92 246) 1px, transparent 0)',
             backgroundSize: '40px 40px'
           }}></div>
         </div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
             Join Our{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-violet-600 to-purple-600">
               Team
             </span>
           </h1>
@@ -363,7 +363,7 @@ export default function CareersPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-blue-600 hover:bg-blue-700 text-white px-8"
+              className="bg-violet-600 hover:bg-violet-700 text-white px-8"
               onClick={() => {
                 if (typeof document !== 'undefined') {
                   const element = document.getElementById('open-positions');
@@ -374,7 +374,7 @@ export default function CareersPage() {
               View Open Positions
             </Button>
             <Link href="/about">
-              <Button variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50 px-8">
+              <Button variant="outline" size="lg" className="border-violet-600 text-violet-600 hover:bg-violet-50 px-8">
                 Learn About Our Culture
               </Button>
             </Link>

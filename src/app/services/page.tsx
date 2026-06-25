@@ -26,7 +26,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'DPB Solution Services - Complete Telecommunications & IT Portfolio',
     description: 'Enterprise telecommunications and IT services with cutting-edge technology',
-    images: ['/images/logo.jpeg'],
     url: 'https://dpbsolution.com/services',
   },
   alternates: {

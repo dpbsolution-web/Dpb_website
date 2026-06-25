@@ -14,8 +14,7 @@ export const metadata: Metadata = {
   description: 'Learn about DPB Solution\'s journey in telecommunications and IT since 2009. Empowering digital transformation with cutting-edge technology, expert team, and unparalleled service commitment.',
   openGraph: {
     title: 'About DPB Solution - Telecommunications & IT Excellence',
-    description: '15+ years of telecommunications and IT expertise',
-    images: ['/images/logo.jpeg'],
+    description: '6+ years of telecommunications and IT expertise',
     url: 'https://dpbsolution.com/about',
   },
   alternates: {

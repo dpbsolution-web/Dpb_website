@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/common/ServiceCard";
+import { SectionHeading } from "@/components/common/SectionHeading";
 import { services } from "@/config/site";
 
 export function ServicesSection() {
@@ -12,35 +13,11 @@ export function ServicesSection() {
   return (
     <section className="py-24 lg:py-32 bg-linear-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-center mb-16 lg:mb-20"
-        >
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
-          >
-            Our Core{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
-              Services
-            </span>
-          </motion.h2>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            Comprehensive IT and telecommunications solutions designed to power your business forward
-          </motion.p>
-        </motion.div>
+        <SectionHeading
+          title={<>Our Core{" "}<span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">Services</span></>}
+          subtitle="Comprehensive IT and telecommunications solutions designed to power your business forward"
+          className="mb-16 lg:mb-20"
+        />
 
         <motion.div
           initial="hidden"

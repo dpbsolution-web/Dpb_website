@@ -13,6 +13,7 @@ interface TestimonialCardProps {
   content: string;
   rating: number;
   image?: string;
+  isActive?: boolean;
 }
 
 export function TestimonialCard({
@@ -21,18 +22,24 @@ export function TestimonialCard({
   role,
   content,
   rating,
-  image
+  image,
+  isActive = false,
 }: TestimonialCardProps) {
   return (
-    <motion.div 
+    <motion.div
       className="h-full"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
+      animate={{ scale: isActive ? 1.02 : 1 }}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
     >
-      <Card className="h-full bg-white border-2 border-gray-200 shadow-lg hover:shadow-2xl hover:border-blue-200 transition-all duration-300">
+      <Card className={`h-full bg-white border-2 shadow-lg transition-all duration-300 ${
+        isActive
+          ? "border-blue-400 shadow-blue-100 shadow-xl"
+          : "border-gray-200 hover:shadow-2xl hover:border-blue-200"
+      }`}>
         <CardContent className="p-6 flex flex-col h-full">
           {/* Quote Icon */}
           <motion.div

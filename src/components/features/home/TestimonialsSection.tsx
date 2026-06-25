@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { TestimonialCard } from "@/components/common/TestimonialCard";
+import { SectionHeading } from "@/components/common/SectionHeading";
 import { testimonials } from "@/config/site";
 import { Button } from "@/components/ui/button";
 
@@ -57,17 +58,10 @@ export function TestimonialsSection() {
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            What Our{" "}
-            <span className="text-blue-600">
-              Clients Say
-            </span>
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Don&apos;t just take our word for it. Here&apos;s what our satisfied clients have to say.
-          </p>
-        </div>
+        <SectionHeading
+          title={<>What Our{" "}<span className="text-blue-600">Clients Say</span></>}
+          subtitle="Don't just take our word for it. Here's what our satisfied clients have to say."
+        />
 
         <div
           className="relative max-w-7xl mx-auto"
@@ -102,9 +96,12 @@ export function TestimonialsSection() {
                   : "md:grid-cols-2 lg:grid-cols-3"
               }`}
             >
-              {visibleTestimonials.map((testimonial) => (
+              {visibleTestimonials.map((testimonial, index) => (
                 <div key={testimonial.id}>
-                  <TestimonialCard {...testimonial} />
+                  <TestimonialCard
+                    {...testimonial}
+                    isActive={index === Math.floor((visibleTestimonials.length - 1) / 2)}
+                  />
                 </div>
               ))}
             </div>

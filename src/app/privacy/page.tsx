@@ -1,17 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { PRIVACY_SECTIONS, PRIVACY_INTRO, PRIVACY_CONTENT, PRIVACY_ACKNOWLEDGMENT } from "@/constants/privacy";
 
 export default function PrivacyPolicyPage() {
   const [activeSection, setActiveSection] = useState("");
 
   return (
-    <div className="min-h-screen bg-white pt-16">
-      {/* Header */}
-      <header className="bg-gray-50 border-b border-gray-200 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <h1 className="text-4xl font-bold text-gray-900">Privacy Policy</h1>
+    <div className="min-h-screen bg-white">
+      {/* Branded Hero Header */}
+      <header className="bg-linear-to-br from-blue-900 via-blue-800 to-indigo-900 py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundSize: "30px 30px"
+        }} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <span className="inline-block mb-3 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-blue-100 backdrop-blur-sm">
+            Legal
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Privacy Policy</h1>
+          <p className="text-blue-200 text-sm">Last updated: June 2025</p>
         </div>
       </header>
 
@@ -178,6 +187,22 @@ export default function PrivacyPolicyPage() {
               </p>
             </div>
           </main>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-blue-50 border-t border-blue-100 py-12 mt-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Questions about our privacy practices?</h2>
+          <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm">
+            Our team is happy to clarify how we handle your data. We respond within 24 hours.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>

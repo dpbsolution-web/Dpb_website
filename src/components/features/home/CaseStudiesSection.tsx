@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { CheckCircle, TrendingUp, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { SectionHeading } from "@/components/common/SectionHeading";
 
 const caseStudies = [
   {
@@ -81,19 +82,10 @@ export function CaseStudiesSection() {
   return (
     <section className="py-24 lg:py-32 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Success <span className="text-blue-600">Stories</span>
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            Real results from real clients. See how we&apos;ve helped leading telecommunications companies achieve their infrastructure goals.
-          </p>
-        </motion.div>
+        <SectionHeading
+          title={<>Success <span className="text-blue-600">Stories</span></>}
+          subtitle="Real results from real clients. See how we've helped leading telecommunications companies achieve their infrastructure goals."
+        />
 
         <motion.div
           ref={ref}

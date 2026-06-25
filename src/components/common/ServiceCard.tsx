@@ -33,10 +33,12 @@ export function ServiceCard({
   return (
     <motion.div
       className="h-full group"
+      style={{ perspective: 1000 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ 
-        y: -8,
+      whileHover={{
+        rotateY: 5,
+        y: -4,
         transition: { duration: 0.3, ease: "easeOut" }
       }}
     >

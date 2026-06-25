@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'DPB Solution - Industry-Specific Solutions',
     description: 'Tailored telecommunications solutions for every industry',
-    images: ['/images/logo.jpeg'],
     url: 'https://dpbsolution.com/solutions',
   },
   alternates: {

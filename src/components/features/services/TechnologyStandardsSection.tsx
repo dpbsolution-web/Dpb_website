@@ -1,17 +1,16 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
+import { SectionHeading } from "@/components/common/SectionHeading";
 
 export function TechnologyStandardsSection() {
   return (
     <section className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Industry Standards &amp; Technologies</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            We support all major telecommunications standards and emerging technologies
-          </p>
-        </div>
+        <SectionHeading
+          title="Industry Standards & Technologies"
+          subtitle="We support all major telecommunications standards and emerging technologies"
+        />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           <div className="h-full text-center p-6 bg-blue-50 rounded-xl border border-blue-100 transition-shadow duration-300 hover:shadow-lg">

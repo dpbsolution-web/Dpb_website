@@ -8,26 +8,7 @@ import { Button } from "@/components/ui/button";
 import { companyInfo } from "@/config/site";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-
-const fadeIn = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
-};
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 60 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
-
-const stagger = {
-  animate: {
-    transition: {
-      staggerChildren: 0.15
-    }
-  }
-};
+import { heroFadeIn, heroFadeInUp, heroStagger } from "@/lib/animations";
 
 
 
@@ -65,6 +46,15 @@ export function HeroSection() {
         />
       ))}
 
+      {/* Sonar ping rings — telecom radar feel */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+        <div className="relative w-12 h-12">
+          <span className="animate-sonar absolute inset-0 rounded-full border border-cyan-400/50" />
+          <span className="animate-sonar-delay-1 absolute inset-0 rounded-full border border-cyan-300/35" />
+          <span className="animate-sonar-delay-2 absolute inset-0 rounded-full border border-blue-300/25" />
+        </div>
+      </div>
+
       {/* Background Image with Dark Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -86,9 +76,9 @@ export function HeroSection() {
           className="max-w-4xl mx-auto text-center"
           initial="initial"
           animate="animate"
-          variants={stagger}
+          variants={heroStagger}
         >
-          <motion.div variants={fadeIn} className="mb-6">
+          <motion.div variants={heroFadeIn} className="mb-6">
             <motion.span 
               className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-white text-gray-900 shadow-xl"
               whileHover={{ scale: 1.05 }}
@@ -100,7 +90,7 @@ export function HeroSection() {
           </motion.div>
 
           <motion.h1 
-            variants={fadeInUp}
+            variants={heroFadeInUp}
             className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
             style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.9)' }}
           >
@@ -113,7 +103,7 @@ export function HeroSection() {
           </motion.h1>
 
           <motion.p
-            variants={fadeIn}
+            variants={heroFadeIn}
             className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto leading-relaxed font-medium"
             style={{ textShadow: '1px 2px 8px rgba(0,0,0,0.9)' }}
           >
@@ -121,7 +111,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.div 
-            variants={fadeIn}
+            variants={heroFadeIn}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -144,7 +134,7 @@ export function HeroSection() {
           {/* Stats with CountUp Animation */}
           <motion.div 
             ref={ref}
-            variants={fadeIn}
+            variants={heroFadeIn}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto"
           >
             <motion.div 

@@ -1,17 +1,26 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { TERMS_SECTIONS, TERMS_INTRO, TERMS_CONTENT, TERMS_FOOTER } from "@/constants/terms";
 
 export default function TermsAndConditionsPage() {
   const [activeSection, setActiveSection] = useState("");
 
   return (
-    <div className="min-h-screen bg-white pt-16">
-      {/* Header */}
-      <header className="bg-gray-50 border-b border-gray-200 py-12">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <h1 className="text-4xl font-bold text-gray-900">Terms and Conditions</h1>
+    <div className="min-h-screen bg-white">
+      {/* Branded Hero Header */}
+      <header className="bg-linear-to-br from-slate-900 via-blue-900 to-slate-800 py-16 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10" style={{
+          backgroundImage: "radial-gradient(circle at 1px 1px, white 1px, transparent 0)",
+          backgroundSize: "30px 30px"
+        }} />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
+          <span className="inline-block mb-3 rounded-full bg-white/15 px-4 py-1.5 text-sm font-semibold text-blue-100 backdrop-blur-sm">
+            Legal
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Terms &amp; Conditions</h1>
+          <p className="text-blue-200 text-sm">Last updated: June 2025</p>
         </div>
       </header>
 
@@ -176,6 +185,22 @@ export default function TermsAndConditionsPage() {
             </div>
 
           </main>
+        </div>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-slate-50 border-t border-slate-200 py-12 mt-4">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl text-center">
+          <h2 className="text-xl font-bold text-gray-900 mb-2">Have questions about these terms?</h2>
+          <p className="text-gray-600 mb-6 max-w-xl mx-auto text-sm">
+            Reach out to our team and we&apos;ll help clarify anything about our terms of service.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-700 transition-colors"
+          >
+            Contact Us
+          </Link>
         </div>
       </div>
     </div>

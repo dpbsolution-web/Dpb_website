@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://dpbsolution.com'),
   title: {
     default: "DPB Solution - Telecommunications & IT Solutions",
-    template: "DPB Solution | %s",
+    template: "%s | DPB Solution",
   },
   description: "Leading provider of telecommunications and IT solutions, connecting businesses to the future with cutting-edge technology and unparalleled service. Empowering Digital Transformation since 2019.",
   keywords: [
@@ -61,21 +61,12 @@ export const metadata: Metadata = {
     siteName: "DPB Solution",
     title: "DPB Solution - Telecommunications & IT Solutions",
     description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation with cutting-edge technology and unparalleled service since 2019.",
-    images: [
-      {
-        url: "/images/logo.jpeg",
-        width: 1200,
-        height: 630,
-        alt: "DPB Solution - Telecommunications & IT Solutions",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "DPB Solution - Telecommunications & IT Solutions",
     description: "Leading provider of telecommunications and IT solutions. Empowering Digital Transformation since 2019.",
     creator: "@dpbsolution",
-    images: ["/images/logo.jpeg"],
   },
   robots: {
     index: true,

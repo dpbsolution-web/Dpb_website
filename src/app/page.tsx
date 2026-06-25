@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { 
+import {
   HeroSection,
   ServicesSection,
   FeaturesSection,
@@ -7,6 +7,7 @@ import {
 } from "@/components/features/home";
 import { CertificationsSection } from "@/components/features/home/CertificationsSection";
 import { ClientsSection } from "@/components/features/home/ClientsSection";
+import { CTASection } from "@/components/features/home/CTASection";
 
 export const metadata: Metadata = {
   title: 'Home - Empowering Digital Transformation',
@@ -14,7 +15,6 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'DPB Solution - Telecommunications & IT Excellence',
     description: 'Enterprise telecommunications and IT solutions with cutting-edge technology',
-    images: ['/images/logo.jpeg'],
     url: 'https://dpbsolution.com',
   },
   alternates: {
@@ -31,6 +31,7 @@ export default function Home() {
       <ServicesSection />
       <FeaturesSection />
       <TestimonialsSection />
+      <CTASection />
     </div>
   );
 }

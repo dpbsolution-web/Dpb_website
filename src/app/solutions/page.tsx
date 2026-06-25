@@ -24,6 +24,12 @@ const stagger = {
   }
 };
 
+const scaleInHero = {
+  initial: { opacity: 0, scale: 0.92 },
+  animate: { opacity: 1, scale: 1 },
+  transition: { duration: 0.7, ease: "easeOut" as const }
+};
+
 export default function SolutionsPage() {
   const [selectedIndustry, setSelectedIndustry] = useState("healthcare");
 
@@ -78,37 +84,32 @@ export default function SolutionsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative  bg-linear-to-br from-violet-50 via-emerald-50 to-blue-50 py-20">
-        <div className="absolute inset-0 bg-grid-slate-100 opacity-25" />
-        
+      <section className="relative bg-linear-to-br from-amber-50 via-orange-50 to-blue-50 py-20">
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(245 158 11) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }} />
+        </div>
+
         <div className="relative container mx-auto px-4">
           <motion.div
-            initial="initial"
-            animate="animate"
-            variants={stagger}
+            {...scaleInHero}
             className="max-w-4xl mx-auto text-center"
           >
-            <motion.h1 
-              variants={fadeIn}
-              className="text-4xl md:text-5xl font-bold text-gray-900 mb-6"
-            >
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Industry-Specific{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">IT Solutions</span>
-            </motion.h1>
-            <motion.p
-              variants={fadeIn}
-              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8"
-            >
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-500 to-orange-600">IT Solutions</span>
+            </h1>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Tailored technology solutions designed to meet the unique challenges and requirements of your industry
-            </motion.p>
-            <motion.div variants={fadeIn}>
-              <Button size="lg" asChild>
-                <Link href="/contact">
-                  Discuss Your Industry Needs
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </motion.div>
+            </p>
+            <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-white" asChild>
+              <Link href="/contact">
+                Discuss Your Industry Needs
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -145,7 +146,7 @@ export default function SolutionsPage() {
                   <TabsTrigger 
                     key={solution.id} 
                     value={solution.id} 
-                    className="flex items-center gap-2 border-2 border-gray-200 bg-white shadow-sm hover:border-blue-500 hover:shadow-md data-[state=active]:border-blue-600 data-[state=active]:bg-blue-50 data-[state=active]:text-blue-700 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg py-3 px-4"
+                    className="flex items-center gap-2 border-2 border-gray-200 bg-white shadow-sm hover:border-amber-400 hover:shadow-md data-[state=active]:border-amber-500 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg py-3 px-4"
                   >
                     <IconComponent className="w-4 h-4" />
                     {solution.title.split(' ')[0]}
@@ -167,8 +168,8 @@ export default function SolutionsPage() {
                     {/* Solution Details */}
                     <motion.div variants={fadeIn}>
                       <div className="flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 bg-violet-100 rounded-lg flex items-center justify-center">
-                          <IconComponent className="w-6 h-6 text-violet-600" />
+                        <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                          <IconComponent className="w-6 h-6 text-amber-600" />
                         </div>
                         <h3 className="text-3xl font-bold text-gray-900">{solution.title}</h3>
                       </div>

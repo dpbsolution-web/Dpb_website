@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeInUp, scaleIn, staggerContainer } from "@/lib/animations";
+import { scaleIn, staggerContainer } from "@/lib/animations";
+import { SectionHeading } from "@/components/common/SectionHeading";
 
 export function NetworkCoverageSection() {
   const networkCoverage = [
@@ -15,10 +16,10 @@ export function NetworkCoverageSection() {
   return (
     <section className="py-24 lg:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div {...fadeInUp} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Network Coverage</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Reliable infrastructure spanning key states across India</p>
-        </motion.div>
+        <SectionHeading
+          title="Network Coverage"
+          subtitle="Reliable infrastructure spanning key states across India"
+        />
         <motion.div
           variants={staggerContainer}
           initial="initial"

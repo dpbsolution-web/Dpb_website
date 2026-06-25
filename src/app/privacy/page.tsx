@@ -25,7 +25,7 @@ export default function PrivacyPolicyPage() {
       </header>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 max-w-7xl">
-        <div className="grid lg:grid-cols-4 gap-12">
+        <div className="grid lg:grid-cols-4 gap-4 lg:gap-12">
           {/* Table of Contents - Sidebar */}
           <aside className="lg:col-span-1">
             <div className="lg:sticky lg:top-24">

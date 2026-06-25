@@ -34,7 +34,7 @@ export function ClientsSection() {
           {doubled.map((name, i) => (
             <span
               key={i}
-              className="inline-flex items-center mx-8 text-lg font-bold text-gray-400 hover:text-blue-600 transition-colors duration-300 shrink-0"
+              className="inline-flex items-center mx-4 sm:mx-8 text-lg font-bold text-gray-400 hover:text-blue-600 transition-colors duration-300 shrink-0"
             >
               {name}
               <span className="ml-8 h-1 w-1 rounded-full bg-gray-300" />

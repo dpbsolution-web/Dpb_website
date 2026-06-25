@@ -8,12 +8,12 @@
 export function SkeletonHero({ tall = false }: { tall?: boolean }) {
   return (
     <div
-      className={`w-full animate-pulse bg-gradient-to-br from-blue-950/30 to-indigo-900/30 flex flex-col items-center justify-center gap-6 px-4 ${
+      className={`w-full animate-pulse bg-linear-to-br from-blue-950/30 to-indigo-900/30 flex flex-col items-center justify-center gap-6 px-4 ${
         tall ? "min-h-[85vh]" : "h-64 md:h-80"
       }`}
     >
       <div className="h-5 w-40 bg-white/20 rounded-full" />
-      <div className="h-10 w-80 bg-white/25 rounded-lg" />
+      <div className="h-10 w-full max-w-[20rem] bg-white/25 rounded-lg" />
       <div className="h-5 w-64 bg-white/15 rounded" />
       <div className="flex gap-4 mt-2">
         <div className="h-12 w-36 bg-white/20 rounded-lg" />

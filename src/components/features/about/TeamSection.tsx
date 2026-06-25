@@ -40,7 +40,7 @@ export function TeamSection() {
             initial="initial"
             whileInView="whileInView"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
           >
             {teamMembers.map((member, index) => {
               const isFlipped = flippedId === member.id;
@@ -49,7 +49,7 @@ export function TeamSection() {
                 <motion.div
                   key={member.id || index}
                   variants={scaleIn}
-                  className="flip-card h-80"
+                  className="flip-card h-72 sm:h-80"
                   onClick={() => handleToggle(member.id)}
                   role="button"
                   tabIndex={0}

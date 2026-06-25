@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function NotFound() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4  bg-linear-to-br from-blue-50 to-white">
-      <div className="max-w-2xl w-full text-center space-y-6">
+      <div className="max-w-2xl w-full text-center space-y-4 sm:space-y-6">
         <div className="mb-8">
           <Image
             src="/images/depositphotos_820124390-stock-photo-render-laptop-showing-404-error.jpg"

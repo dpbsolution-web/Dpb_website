@@ -88,7 +88,7 @@ export function TestimonialsSection() {
           <div className="overflow-hidden px-2">
             <div
               key={currentIndex}
-              className={`grid gap-8 ${
+              className={`grid gap-4 sm:gap-6 md:gap-8 ${
                 visibleTestimonials.length === 1 
                   ? "md:grid-cols-1 max-w-md mx-auto" 
                   : visibleTestimonials.length === 2 

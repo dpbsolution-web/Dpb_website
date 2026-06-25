@@ -33,7 +33,7 @@ export function StatsSection() {
           initial="initial"
           whileInView="whileInView"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8"
         >
           {stats.map((stat, index) => (
             <motion.div

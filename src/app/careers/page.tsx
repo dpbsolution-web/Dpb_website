@@ -72,7 +72,7 @@ function NoOpenings({ applicationEmail }: { applicationEmail: string }) {
   return (
     <div className="max-w-5xl mx-auto">
       {/* Hero CTA banner */}
-      <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 via-blue-700 to-indigo-700 px-6 sm:px-12 py-12 sm:py-16 text-center shadow-xl">
+      <div className="relative overflow-hidden rounded-3xl bg-linear-to-br from-blue-600 via-blue-700 to-indigo-700 px-4 sm:px-8 md:px-12 py-8 sm:py-12 md:py-16 text-center shadow-xl">
         {/* decorative blobs */}
         <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-indigo-400/20 blur-3xl" />
@@ -418,7 +418,7 @@ export default function CareersPage() {
       {/* Culture Section */}
       <motion.section {...fadeInUp} className="py-24 lg:py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -467,7 +467,7 @@ export default function CareersPage() {
               <div className="bg-linear-to-br from-blue-50 to-blue-100 rounded-xl p-8 text-center shadow-lg">
                 {COMPANY_STATS.map((stat, index) => (
                   <div key={index} className={index < COMPANY_STATS.length - 1 ? "mb-4" : ""}>
-                    <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
+                    <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
                     <div className="text-gray-900 font-semibold">{stat.label}</div>
                   </div>
                 ))}
@@ -527,7 +527,7 @@ export default function CareersPage() {
                 placeholder="Search by job title or department..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-12 pr-4 py-6 text-lg border-2 border-gray-200 focus:border-blue-500 rounded-xl"
+                className="pl-12 pr-4 py-3 sm:py-6 text-lg border-2 border-gray-200 focus:border-blue-500 rounded-xl"
               />
               {searchQuery && (
                 <button
@@ -946,7 +946,7 @@ export default function CareersPage() {
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 lg:gap-12">
             {HIRING_PROCESS.map((process) => (
               <div key={process.step} className="text-center">
                 <div className="bg-blue-600 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">

@@ -36,7 +36,7 @@ export function MissionVisionSection() {
   return (
     <section className="py-24 lg:py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-10 items-stretch">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 lg:gap-10 items-stretch">
           {cards.map((card, index) => {
             const Icon = card.icon;
             const styles = accentStyles[card.accent];

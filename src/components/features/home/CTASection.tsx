@@ -37,13 +37,13 @@ export function CTASection() {
             Trusted by <strong className="text-white">{companyInfo.clients} satisfied clients</strong> across India for telecom infrastructure, OFC deployment, and IT solutions.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="text-base px-8 py-6 bg-white hover:bg-gray-50 text-blue-700 font-bold shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105" asChild>
+            <Button size="lg" className="text-base px-4 sm:px-8 py-3 sm:py-6 bg-white hover:bg-gray-50 text-blue-700 font-bold shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105" asChild>
               <Link href="/contact">
                 Get Free Consultation
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button size="lg" variant="outline" className="text-base px-8 py-6 bg-transparent hover:bg-white/10 text-white border-white/50 hover:border-white font-semibold shadow-lg transition-all duration-300" asChild>
+            <Button size="lg" variant="outline" className="text-base px-4 sm:px-8 py-3 sm:py-6 bg-transparent hover:bg-white/10 text-white border-white/50 hover:border-white font-semibold shadow-lg transition-all duration-300" asChild>
               <a href={`tel:${companyInfo.contact.phone.replace(/\s+/g, '')}`}>
                 <PhoneCall className="mr-2 h-5 w-5" />
                 Call Us Now

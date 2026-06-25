@@ -30,7 +30,7 @@ export function AboutHeroSection() {
         <span className="inline-block mb-4 rounded-full border border-blue-200 bg-white/70 px-4 py-1.5 text-sm font-semibold text-blue-700 backdrop-blur-sm">
           About Us
         </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
           About{" "}
           <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-indigo-600">
             DPB Solution

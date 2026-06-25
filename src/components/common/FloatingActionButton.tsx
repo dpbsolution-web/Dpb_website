@@ -42,7 +42,7 @@ export function FloatingActionButton() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.8 }}
             transition={{ duration: 0.2 }}
-            className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl p-3 space-y-2 min-w-[200px] border border-gray-200"
+            className="absolute bottom-20 right-0 bg-white rounded-2xl shadow-2xl p-3 space-y-2 min-w-40 sm:min-w-[200px] border border-gray-200"
           >
             {actions.map((action, index) => (
               <motion.div

@@ -53,7 +53,7 @@ export function ImplementationProcessSection() {
             return (
               <motion.div key={index} variants={scaleIn} className="h-full">
                 <div className="relative flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-shadow duration-300 hover:shadow-xl">
-                  <span className="absolute right-5 top-5 text-5xl font-bold text-gray-100 select-none">
+                  <span className="absolute right-5 top-5 text-3xl sm:text-5xl font-bold text-gray-100 select-none">
                     {index + 1}
                   </span>
                   <span className="relative mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600">

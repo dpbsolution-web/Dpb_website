@@ -55,7 +55,7 @@ export function BusinessHeadSection() {
               </div>
             </div>
 
-            <CardContent className="px-6 sm:px-10 py-8 lg:py-10 space-y-10">
+            <CardContent className="px-6 sm:px-10 py-6 sm:py-8 lg:py-10 space-y-10">
               {/* Professional Overview */}
               <div>
                 <div className="flex items-center gap-3 mb-4">

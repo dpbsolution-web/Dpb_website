@@ -13,7 +13,7 @@ export function ServicesHeroSection() {
         <Badge className="mb-6 bg-cyan-100 text-cyan-700 border-cyan-200 text-sm md:text-base">
           Advanced Telecommunications
         </Badge>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
           Our <span className="text-cyan-600">Telecom Services</span>
         </h1>
         <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed">

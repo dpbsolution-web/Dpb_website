@@ -47,7 +47,7 @@ export function HeroSection() {
       ))}
 
       {/* Sonar ping rings — telecom radar feel */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-[1]">
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-1">
         <div className="relative w-12 h-12">
           <span className="animate-sonar absolute inset-0 rounded-full border border-cyan-400/50" />
           <span className="animate-sonar-delay-1 absolute inset-0 rounded-full border border-cyan-300/35" />
@@ -91,7 +91,7 @@ export function HeroSection() {
 
           <motion.h1 
             variants={heroFadeInUp}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6"
             style={{ textShadow: '2px 4px 12px rgba(0,0,0,0.9)' }}
           >
             <span className="text-white">DPB</span>{" "}
@@ -115,7 +115,7 @@ export function HeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-8"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" className="text-lg px-8 py-6 bg-blue-600 hover:bg-blue-700 text-white shadow-2xl font-semibold" asChild>
+              <Button size="lg" className="text-base sm:text-lg px-4 sm:px-8 py-3 sm:py-6 bg-blue-600 hover:bg-blue-700 text-white shadow-2xl font-semibold" asChild>
                 <Link href="/contact">
                   Get Started Today
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -123,7 +123,7 @@ export function HeroSection() {
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 bg-white hover:bg-gray-100 text-gray-900 shadow-2xl font-semibold" asChild>
+              <Button size="lg" variant="outline" className="text-base sm:text-lg px-4 sm:px-8 py-3 sm:py-6 bg-white hover:bg-gray-100 text-gray-900 shadow-2xl font-semibold" asChild>
                 <Link href="/services">
                   Explore Services
                 </Link>
@@ -138,7 +138,7 @@ export function HeroSection() {
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto"
           >
             <motion.div 
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-6 px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-3 px-4 sm:py-6 sm:px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
               whileHover={{ y: -5 }}
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
@@ -149,7 +149,7 @@ export function HeroSection() {
               </div>
             </motion.div>
             <motion.div 
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-6 px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-3 px-4 sm:py-6 sm:px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
               whileHover={{ y: -5 }}
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
@@ -160,7 +160,7 @@ export function HeroSection() {
               </div>
             </motion.div>
             <motion.div 
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-6 px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-3 px-4 sm:py-6 sm:px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
               whileHover={{ y: -5 }}
             >
               <div className="text-2xl md:text-3xl font-bold text-white mb-3 leading-tight" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>
@@ -171,7 +171,7 @@ export function HeroSection() {
               </div>
             </motion.div>
             <motion.div 
-              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-6 px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="text-center bg-white/10 backdrop-blur-md rounded-xl py-3 px-4 sm:py-6 sm:px-8 border border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
               whileHover={{ y: -5 }}
             >
               <div className="text-4xl md:text-5xl font-bold text-white mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.8)' }}>

@@ -147,7 +147,7 @@ export default function ContactPage() {
           >
             What happens next?
           </motion.p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 text-center">
             {[
               { step: "01", icon: Send, title: "Submit your query", desc: "Fill in the form with your requirements and hit send." },
               { step: "02", icon: Clock, title: "We respond in 24 h", desc: "Our team reviews your message and reaches out promptly." },
@@ -161,14 +161,14 @@ export default function ContactPage() {
                 transition={{ duration: 0.5, delay: i * 0.12 }}
                 className="flex flex-col items-center gap-3"
               >
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg shadow-emerald-200">
+                <div className="relative flex h-12 w-12 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-emerald-600 text-white shadow-lg shadow-emerald-200">
                   <Icon className="h-7 w-7" />
                   <span className="absolute -top-2 -right-2 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">
                     {step}
                   </span>
                 </div>
                 <p className="text-base font-semibold text-gray-900">{title}</p>
-                <p className="text-sm text-gray-500 leading-relaxed max-w-[200px]">{desc}</p>
+                <p className="text-sm text-gray-500 leading-relaxed max-w-[250px] sm:max-w-none">{desc}</p>
               </motion.div>
             ))}
           </div>
@@ -179,9 +179,9 @@ export default function ContactPage() {
       <section className="py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-10 lg:gap-16">
               {/* Contact Information */}
-              <div className="space-y-8">
+              <div className="space-y-4 sm:space-y-6 md:space-y-8">
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Contact Information</h3>
                   <p className="text-gray-600 mb-8 leading-relaxed">
@@ -257,7 +257,7 @@ export default function ContactPage() {
                   >
                     <CardHeader className="pb-4">
                       <motion.div variants={itemVariants}>
-                        <CardTitle className="text-2xl">Send us a message</CardTitle>
+                        <CardTitle className="text-xl sm:text-2xl">Send us a message</CardTitle>
                       </motion.div>
                     </CardHeader>
                     <CardContent>
@@ -267,7 +267,7 @@ export default function ContactPage() {
                           whileInView={{ opacity: 1, x: 0 }}
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.1 }}
-                          className="grid grid-cols-2 gap-4"
+                          className="grid grid-cols-1 sm:grid-cols-2 gap-4"
                         >
                           <div>
                             <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">

@@ -32,7 +32,7 @@ export function ValuesSection() {
           subtitle="The principles that guide everything we do"
         />
         
-        <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-10">
           {values.map((value, index) => {
             const Icon = value.icon;
             return (

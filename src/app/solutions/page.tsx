@@ -84,7 +84,7 @@ export default function SolutionsPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-linear-to-br from-amber-50 via-orange-50 to-blue-50 py-20">
+      <section className="relative bg-linear-to-br from-amber-50 via-orange-50 to-blue-50 py-10 md:py-20">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
             backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(245 158 11) 1px, transparent 0)',
@@ -97,7 +97,7 @@ export default function SolutionsPage() {
             {...scaleInHero}
             className="max-w-4xl mx-auto text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Industry-Specific{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-500 to-orange-600">IT Solutions</span>
             </h1>
@@ -146,7 +146,7 @@ export default function SolutionsPage() {
                   <TabsTrigger 
                     key={solution.id} 
                     value={solution.id} 
-                    className="flex items-center gap-2 border-2 border-gray-200 bg-white shadow-sm hover:border-amber-400 hover:shadow-md data-[state=active]:border-amber-500 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg py-3 px-4"
+                    className="flex items-center gap-2 border-2 border-gray-200 bg-white shadow-sm hover:border-amber-400 hover:shadow-md data-[state=active]:border-amber-500 data-[state=active]:bg-amber-50 data-[state=active]:text-amber-700 data-[state=active]:shadow-lg transition-all duration-300 rounded-lg py-2 px-2 sm:py-3 sm:px-4"
                   >
                     <IconComponent className="w-4 h-4" />
                     {solution.title.split(' ')[0]}
@@ -171,7 +171,7 @@ export default function SolutionsPage() {
                         <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
                           <IconComponent className="w-6 h-6 text-amber-600" />
                         </div>
-                        <h3 className="text-3xl font-bold text-gray-900">{solution.title}</h3>
+                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900">{solution.title}</h3>
                       </div>
                       
                       <p className="text-lg text-gray-600 mb-8">{solution.description}</p>
